@@ -11,8 +11,9 @@ export default defineConfig({
   integrations: [
     starlight({
       credits: true,
+      customCss: ['./src/styles/custom.css'],
       editLink: {
-        baseUrl: 'https://github.com/HiDeoo/starlight-theme-rapide/edit/main/docs/',
+        baseUrl: 'https://github.com/ananymishradev/portfolio',
       },
       head: [
         {
@@ -23,7 +24,7 @@ export default defineConfig({
           tag: 'meta',
           attrs: {
             property: 'og:image:alt',
-            content: 'Starlight theme inspired by the Visual Studio Code Vitesse theme.',
+            content: 'Documentation of Performance Engineering by Anany Mishra.',
           },
         },
       ],
@@ -46,7 +47,7 @@ export default defineConfig({
         { href: 'https://bsky.app/profile/hideoo.dev', icon: 'blueSky', label: 'Bluesky' },
         { href: 'https://github.com/HiDeoo/starlight-theme-rapide', icon: 'github', label: 'GitHub' },
       ],
-      title: 'Starlight Rapide',
+      title: 'Anany Mishra',
     }),
   ],
   site,
