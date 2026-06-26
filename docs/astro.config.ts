@@ -10,7 +10,7 @@ const site =
 export default defineConfig({
   integrations: [
     starlight({
-      credits: true,
+      credits: false,
       customCss: ['./src/styles/custom.css'],
       editLink: {
         baseUrl: 'https://github.com/ananymishradev/portfolio',
@@ -44,7 +44,8 @@ export default defineConfig({
         },
       ],
       social: [
-        { href: 'https://bsky.app/profile/hideoo.dev', icon: 'blueSky', label: 'Bluesky' },
+        { href: 'https://twitter.com/ananymishradev', icon: 'twitter', label: 'Twitter' },
+        { href: 'https://linkedin.com/in/ananymishradev', icon: 'linkedin', label: 'LinkedIn' },
         { href: 'https://github.com/HiDeoo/starlight-theme-rapide', icon: 'github', label: 'GitHub' },
       ],
       title: 'Anany Mishra',
