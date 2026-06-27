@@ -3,9 +3,9 @@ import { defineConfig } from 'astro/config'
 import starlightThemeRapide from 'starlight-theme-rapide'
 
 const site =
-  process.env['VERCEL_ENV'] !== 'production' && process.env['VERCEL_URL']
-    ? `https://${process.env['VERCEL_URL']}`
-    : 'https://starlight-theme-rapide.vercel.app/'
+  process.env['CF_PAGES_URL']
+    ? process.env['CF_PAGES_URL']
+    : 'https://ananymishra.dev/'
 
 export default defineConfig({
   integrations: [
@@ -28,6 +28,9 @@ export default defineConfig({
           },
         },
       ],
+      components: {
+        SiteTitle: './src/components/SiteTitle.astro',
+      },
       plugins: [starlightThemeRapide()],
       sidebar: [
         {
