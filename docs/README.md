@@ -1,28 +1,5 @@
-<div align="center">
-  <h1>starlight-theme-rapide ⚡</h1>
-  <p>Starlight theme inspired by the Visual Studio Code Vitesse theme.</p>
-</div>
+# ananymishra.dev
 
-<div align="center">
-  <a href="https://github.com/HiDeoo/starlight-theme-rapide/actions/workflows/integration.yml">
-    <img alt="Integration Status" src="https://github.com/HiDeoo/starlight-theme-rapide/actions/workflows/integration.yml/badge.svg" />
-  </a>
-  <a href="https://github.com/HiDeoo/starlight-theme-rapide/blob/main/LICENSE">
-    <img alt="License" src="https://badgen.net/github/license/HiDeoo/starlight-theme-rapide" />
-  </a>
-  <br />
-</div>
+Personal website and blog by Anany Mishra — performance engineering, AI systems, and low-latency computing.
 
-## Documentation
-
-Run the docs locally using [pnpm](https://pnpm.io):
-
-```shell
-pnpm run dev
-```
-
-## License
-
-Licensed under the MIT License, Copyright © HiDeoo.
-
-See [LICENSE](https://github.com/HiDeoo/starlight-theme-rapide/blob/main/LICENSE) for more information.
+Built with [Astro](https://astro.build) and [Starlight](https://starlight.astro.build).

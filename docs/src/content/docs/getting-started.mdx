@@ -1,47 +1,20 @@
 ---
 title: Getting Started
-description: Learn how to use the Starlight Rapide theme in your documentation.
+description: Start here to explore performance engineering — CUDA kernels, PyTorch optimizations, HFT system design, and more.
 ---
 
-A [Starlight](https://starlight.astro.build) theme inspired by the Visual Studio Code [Vitesse theme](https://marketplace.visualstudio.com/items?itemName=antfu.theme-vitesse).
-Check out the various [examples](/examples/asides/) to see the theme in action.
+Welcome to my corner of the internet. This site collects deep dives into the systems I find genuinely interesting: high-performance computing, AI infrastructure, and the art of making software go fast.
 
-## Prerequisites
+## What You Will Find
 
-You will need to have a Starlight website set up.
-If you don't have one yet, you can follow the ["Getting Started"](https://starlight.astro.build/getting-started) guide in the Starlight docs to create one.
+**CUDA Kernel Optimization** — From shared memory tiling to warp-level primitives, I write about what actually moves the needle on GPU throughput.
 
-## Installation
+**PyTorch Internals** — Custom C++ extensions, TorchDynamo analysis, and squeezing every last FLOP out of your training and inference pipelines.
 
-import { Steps } from '@astrojs/starlight/components'
-import { PackageManagers } from '@hideoo/starlight-plugins-docs-components'
+**OpenAI Triton** — A modern lens on GPU programming. I cover Triton kernels, performance comparisons with hand-written CUDA, and production patterns.
 
-<Steps>
+**Low-Latency Systems** — HFT system design, lock-free data structures, cache-coherent architectures, and the memory model tricks that separate 99th from 99.99th percentile latency.
 
-1. The Starlight Rapide theme is a Starlight [plugin](https://starlight.astro.build/reference/plugins/) that you can install using your favorite package manager:
+---
 
-   <PackageManagers pkg="starlight-theme-rapide" />
-
-2. Configure the plugin in your Starlight [configuration](https://starlight.astro.build/reference/configuration/#plugins) in the `astro.config.mjs` file.
-
-   ```diff lang="js"
-   // astro.config.mjs
-   import starlight from '@astrojs/starlight'
-   import { defineConfig } from 'astro/config'
-   +import starlightThemeRapide from 'starlight-theme-rapide'
-
-   export default defineConfig({
-     integrations: [
-       starlight({
-   +      plugins: [starlightThemeRapide()],
-         title: 'My Docs',
-       }),
-     ],
-   })
-   ```
-
-3. [Start the development server](https://starlight.astro.build/getting-started/#start-the-development-server) to preview the theme in action.
-
-</Steps>
-
-That's it! You should now see the Starlight Rapide theme applied to your Starlight website.
+Browse the [examples](/examples/asides/) to see code blocks, file trees, and other formatting in action, or jump straight into a topic that catches your eye.

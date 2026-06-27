@@ -1,6 +1,6 @@
 import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config'
-import starlightThemeRapide from 'starlight-theme-rapide'
+import starlightThemeRapide from './starlight-theme-rapide/index.ts'
 
 const site =
   process.env['CF_PAGES_URL']
@@ -49,7 +49,7 @@ export default defineConfig({
       social: [
         { href: 'https://twitter.com/ananymishradev', icon: 'twitter', label: 'Twitter' },
         { href: 'https://linkedin.com/in/ananymishradev', icon: 'linkedin', label: 'LinkedIn' },
-        { href: 'https://github.com/HiDeoo/starlight-theme-rapide', icon: 'github', label: 'GitHub' },
+        { href: 'https://github.com/ananymishradev', icon: 'github', label: 'GitHub' },
       ],
       title: 'Anany Mishra',
     }),

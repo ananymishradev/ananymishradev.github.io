@@ -1,22 +1,20 @@
 {
-  "name": "starlight-theme-rapide-docs",
-  "version": "0.2.1",
+  "name": "anany-mishra",
+  "version": "1.0.0",
   "license": "MIT",
-  "description": "Starlight theme inspired by the Visual Studio Code Vitesse theme.",
-  "author": "HiDeoo <github@hideoo.dev> (https://hideoo.dev)",
+  "description": "Personal website and blog of Anany Mishra — performance engineering, AI systems, and low-latency computing.",
+  "author": "Anany Mishra <anany.mishra.dev@gmail.com> (https://ananymishra.dev)",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "lint": "eslint . --cache --max-warnings=0"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.38.1",
-    "@hideoo/starlight-plugins-docs-components": "^0.4.2",
     "astro": "^6.0.4",
     "sharp": "^0.34.5",
-    "starlight-theme-rapide": "workspace:*"
+    "starlight-theme-rapide": "file:./starlight-theme-rapide"
   },
   "engines": {
     "node": ">=22.12.0"
@@ -24,21 +22,18 @@
   "private": true,
   "sideEffects": false,
   "keywords": [
-    "starlight",
-    "theme",
-    "rapide",
-    "vitesse",
-    "plugin",
-    "documentation",
-    "astro"
+    "performance-engineering",
+    "cuda",
+    "ai-systems",
+    "low-latency",
+    "blog"
   ],
-  "homepage": "https://github.com/HiDeoo/starlight-theme-rapide",
+  "homepage": "https://ananymishra.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HiDeoo/starlight-theme-rapide.git",
-    "directory": "docs"
+    "url": "https://github.com/ananymishradev/portfolio.git"
   },
-  "bugs": "https://github.com/HiDeoo/starlight-theme-rapide/issues",
+  "bugs": "https://github.com/ananymishradev/portfolio/issues",
   "devDependencies": {
     "wrangler": "^4.104.0"
   }
