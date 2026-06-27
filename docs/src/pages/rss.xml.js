@@ -5,7 +5,6 @@ export async function GET(context) {
   const docs = await getCollection('docs')
   const pages = docs
     .filter(doc => !doc.data.draft)
-    .filter(doc => !doc.id.startsWith('examples/'))
 
   return rss({
     title: 'Anany Mishra',

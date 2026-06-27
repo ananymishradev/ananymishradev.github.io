@@ -1,6 +1,8 @@
 import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config'
 import starlightThemeRapide from './starlight-theme-rapide/index.ts'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 
 const site =
   process.env['CF_PAGES_URL']
@@ -8,6 +10,10 @@ const site =
     : 'https://ananymishra.dev/'
 
 export default defineConfig({
+  markdown: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
+  },
   integrations: [
     starlight({
       credits: false,
@@ -16,6 +22,14 @@ export default defineConfig({
         baseUrl: 'https://github.com/ananymishradev/portfolio',
       },
       head: [
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'stylesheet',
+            href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
+            crossorigin: 'anonymous',
+          },
+        },
         {
           tag: 'meta',
           attrs: { property: 'og:image', content: new URL('image.png', site).href },
@@ -42,13 +56,15 @@ export default defineConfig({
             { label: 'Low-Latency C++ & Computer Architecture', link: '/resources/low-latency-performance-cpp-and-computer-architecture/' },
             { label: 'OS Internals & Linux Kernel Bypass', link: '/resources/operating-system-internals-and-linux-kernel-bypass/' },
             { label: 'HFT System Design', link: '/resources/hft-system-design/' },
-            { label: 'Plugins and Tools', link: '/resources/starlight/' },
           ],
         },
-        {
-          label: 'Examples',
-          autogenerate: { directory: 'examples' },
-        },
+        { label: 'Deep Learning', autogenerate: { directory: 'deep-learning' } },
+        { label: 'PyTorch Internals', autogenerate: { directory: 'pytorch-internals' } },
+        { label: 'GPU Architecture', autogenerate: { directory: 'gpu-architecture' } },
+        { label: 'GPU Programming', autogenerate: { directory: 'gpu-programming' } },
+        { label: 'Performance Engineering', autogenerate: { directory: 'performance-engineering' } },
+        { label: 'C++ in Production', autogenerate: { directory: 'cpp-in-production' } },
+        { label: 'Distributed Systems', autogenerate: { directory: 'distributed-systems' } },
       ],
       social: [
         { href: 'https://twitter.com/ananymishradev', icon: 'twitter', label: 'Twitter' },

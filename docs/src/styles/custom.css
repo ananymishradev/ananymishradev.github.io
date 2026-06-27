@@ -138,6 +138,16 @@ body:has(.contact-splash) h1#_top {
   }
 }
 
+/* Override LinkButton primary to match home page hero buttons */
+.sl-link-button.primary {
+  background: transparent !important;
+  color: var(--sl-color-text-accent) !important;
+}
+
+.sl-link-button.primary:hover {
+  color: var(--sl-color-text-accent) !important;
+}
+
 @media (max-width: 72rem) {
   .contact-splash {
     grid-template-columns: 1fr;
