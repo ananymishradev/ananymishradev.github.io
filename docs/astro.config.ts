@@ -34,13 +34,16 @@ export default defineConfig({
       },
       plugins: [starlightThemeRapide()],
       sidebar: [
+        { label: 'Start Here', items: ['start-here'] },
         {
-          label: 'Start Here',
-          items: ['getting-started', 'customization'],
-        },
-        {
-          label: 'Resources',
-          items: [{ label: 'Plugins and Tools', link: '/resources/starlight/' }],
+          label: 'Resources and References',
+          items: [
+            { label: 'CUDA & PyTorch Performance Engineering', link: '/resources/cuda-and-pytorch-performance-engineering/' },
+            { label: 'Low-Latency C++ & Computer Architecture', link: '/resources/low-latency-performance-cpp-and-computer-architecture/' },
+            { label: 'OS Internals & Linux Kernel Bypass', link: '/resources/operating-system-internals-and-linux-kernel-bypass/' },
+            { label: 'HFT System Design', link: '/resources/hft-system-design/' },
+            { label: 'Plugins and Tools', link: '/resources/starlight/' },
+          ],
         },
         {
           label: 'Examples',

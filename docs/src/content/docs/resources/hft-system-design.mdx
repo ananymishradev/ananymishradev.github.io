@@ -1,0 +1,14 @@
+---
+title: High-Frequency Trading (HFT) System Design
+description: Comprehensive study of HFT system architecture including LMAX Disruptor pattern, mechanical sympathy, order book construction, and end-to-end trading system design.
+---
+
+### LMAX Disruptor Architecture Paper & "Mechanical Sympathy"
+
+A design philosophy coined by Martin Thompson, popularized by the open-source LMAX Disruptor pattern. It teaches "Mechanical Sympathy"—designing software that works *with* the underlying hardware instead of against it. It walks through how to eliminate false sharing, avoid CPU cache misses, and structure your market data order book to keep data local in the L1/L2 cache.
+
+### QuantStart & Mark Joshi's Quantitative Finance Material
+
+Deep-dive reference books and online architectural breakdowns focusing on financial engine construction. It bridges the gap between pure math/AI and C++ systems. It explains the end-to-end architecture of a trading system: Market Data Feed Handler $\rightarrow$ Order Book Construction $\rightarrow$ Alpha Engine $\rightarrow$ Risk Manager $\rightarrow$ Order Router.
+
+---
