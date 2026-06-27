@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ananymishra.dev/sitemap-index.xml

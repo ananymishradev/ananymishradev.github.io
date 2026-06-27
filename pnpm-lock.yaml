@@ -47,21 +47,21 @@ importers:
 
   docs:
     dependencies:
+      '@anany/starlight-theme-rapide':
+        specifier: file:./starlight-theme-rapide
+        version: file:docs/starlight-theme-rapide(@astrojs/starlight@0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2)))
+      '@astrojs/rss':
+        specifier: ^4.0.18
+        version: 4.0.18
       '@astrojs/starlight':
         specifier: ^0.38.1
         version: 0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2))
-      '@hideoo/starlight-plugins-docs-components':
-        specifier: ^0.4.2
-        version: 0.4.2(@astrojs/starlight@0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2)))
       astro:
         specifier: ^6.0.4
         version: 6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2)
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
-      starlight-theme-rapide:
-        specifier: workspace:*
-        version: link:../packages/starlight-theme-rapide
     devDependencies:
       wrangler:
         specifier: ^4.104.0
@@ -75,14 +75,11 @@ importers:
 
 packages:
 
-  '@astro-community/astro-embed-twitter@0.5.11':
-    resolution: {integrity: sha512-6cmyQY4LVVJj6x7qC6XrhWcxNffLvR+QGE/iw5HTOtAn60AStr6u+IX2Txpy6N6bta0DLjGqhTBhkC3NxmVKJg==}
-
-  '@astro-community/astro-embed-utils@0.2.0':
-    resolution: {integrity: sha512-Ia70AMCFOUOSoaMfMaK7Ovk7VyIY4opwzBJoA6GeL+omkvpFwDbSWmA8MOiMF4gJC0j/1dgrEir+txIb+WvsCA==}
-
-  '@astro-community/astro-embed-youtube@0.5.10':
-    resolution: {integrity: sha512-hVlx77KQLjKzElVQnrU5znQ5/E60keVSAPrhuWvQQHuqva5auJtt8YBpOThkwDMuEKXjQybEF1/3C07RZ8MAOQ==}
+  '@anany/starlight-theme-rapide@file:docs/starlight-theme-rapide':
+    resolution: {directory: docs/starlight-theme-rapide, type: directory}
+    engines: {node: '>=22.12.0'}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.34.0'
 
   '@astrojs/check@0.9.7':
     resolution: {integrity: sha512-dA7U5/OFg8/xaMUb2vUOOJuuJXnMpHy6F0BM8ZhL7WT5OkTBwJ0GoW38n4fC4CXt+lT9mLWL0y8Pa74tFByBpQ==}
@@ -123,6 +120,9 @@ packages:
   '@astrojs/prism@4.0.0':
     resolution: {integrity: sha512-NndtNPpxaGinRpRytljGBvYHpTOwHycSZ/c+lQi5cHvkqqrHKWdkPEhImlODBNmbuB+vyQUNUDXyjzt66CihJg==}
     engines: {node: ^20.19.1 || >=22.12.0}
+
+  '@astrojs/rss@4.0.18':
+    resolution: {integrity: sha512-wc5DwKlbTEdgVAWnHy8krFTeQ42t1v/DJqeq5HtulYK3FYHE4krtRGjoyhS3eXXgfdV6Raoz2RU3wrMTFAitRg==}
 
   '@astrojs/sitemap@3.7.1':
     resolution: {integrity: sha512-IzQqdTeskaMX+QDZCzMuJIp8A8C1vgzMBp/NmHNnadepHYNHcxQdGLQZYfkbd2EbRXUfOS+UDIKx8sKg0oWVdw==}
@@ -753,12 +753,6 @@ packages:
   '@hideoo/prettier-config@2.0.1':
     resolution: {integrity: sha512-FIbe9hUglcv93EOwTWEirqupbKNYCbfl5DiIKo6ORKE8kBIcuUdm5TgdnrQ305qUCvxJjXTQ8wpmVRFuD0FO8w==}
 
-  '@hideoo/starlight-plugins-docs-components@0.4.2':
-    resolution: {integrity: sha512-Sgq4HgNsrL/t/D7RjkbD+eLnyqXGdTSq+mW91K3BfI3HVYnwvR/uuBKiSJGcQ7gxf7SUiD0UDz3Jsv0SeCPK4A==}
-    engines: {node: '>=22'}
-    peerDependencies:
-      '@astrojs/starlight': '>=0.38.0'
-
   '@hideoo/tsconfig@2.0.3':
     resolution: {integrity: sha512-SAyYqLnTVRd1mBx67v6kRB2Kt+eYQITVIXBZvTnLrVoyRLtBvsn8ENff+yc6aLeHQS5JRavM2JfR+RCJ+G/wPA==}
 
@@ -974,6 +968,9 @@ packages:
 
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
+
+  '@nodable/entities@2.2.0':
+    resolution: {integrity: sha512-9uGyhaQavEUMC8AIddIjau4NsnsXhou+j5sBAGojCM1oxmQpVKTWR/9JxABD6UAv12vpIms55fPZKFQEhG6uBg==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1522,6 +1519,9 @@ packages:
   anymatch@3.1.3:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
     engines: {node: '>= 8'}
+
+  anynum@1.0.1:
+    resolution: {integrity: sha512-N6//FLET/tXYNM/F6ABca1oH6fWB+KlTt909Le28WMDBk8oaT4vY17DCrwg2MvmuqUKt3Ni4N5dGJ/EoBgcO6A==}
 
   arg@5.0.2:
     resolution: {integrity: sha512-PYjyFOLKQ9y57JvQ6QLo8dAgNqswh8M1RMJYdQduT6xbWSgK36P/Z/v+p888pM69jMMfS8Xd8F6I1kQ/I9HUGg==}
@@ -2200,6 +2200,13 @@ packages:
   fast-uri@3.0.3:
     resolution: {integrity: sha512-aLrHthzCjH5He4Z2H9YZ+v6Ujb9ocRuW6ZzkJQOrTxleEijANq4v1TsaPaVG1PZcuurEzrLcWRyYBYXD5cEiaw==}
 
+  fast-xml-builder@1.2.0:
+    resolution: {integrity: sha512-00aAWieqff+ZJhsXA4g1g7M8k+7AYoMUUHF+/zFb5U6Uv/P0Vl4QZo84/IcufzYalLuEj9928bXN9PbbFzMF0Q==}
+
+  fast-xml-parser@5.9.3:
+    resolution: {integrity: sha512-brCNCeScma/kqa54J4PIDriSSSLssRkuYaUCpvHJulGc3HGI/xxKUCTDcYkAdqJsyb//ydpbxecjC3hB9+tb/g==}
+    hasBin: true
+
   fastq@1.17.1:
     resolution: {integrity: sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==}
 
@@ -2617,6 +2624,9 @@ packages:
     resolution: {integrity: sha512-p3EcsicXjit7SaskXHs1hA91QxgTw46Fv6EFKKGS5DRFLD8yKnohjF3hxoju94b/OcMZoQukzpPpBE9uLVKzgQ==}
     engines: {node: '>= 0.4'}
 
+  is-unsafe@1.0.1:
+    resolution: {integrity: sha512-CLK2+VdgERgD96EYm5lUQssZYlRg2tkZnbsxZoacmSiRxiFJ4Nk4SzjCl+Ur+v3kXIY9dTIdb3IH22y1mZ56LA==}
+
   is-weakmap@2.0.2:
     resolution: {integrity: sha512-K5pXYOm9wqY1RgjpL3YTkF39tni1XajUIkawTLUo9EZEVUFga5gSQJF8nNS7ZwJQ02y+1YCNYcMh+HIf1ZqE+w==}
     engines: {node: '>= 0.4'}
@@ -2719,9 +2729,6 @@ packages:
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
-
-  lite-youtube-embed@0.3.4:
-    resolution: {integrity: sha512-aXgxpwK7AIW58GEbRzA8EYaY4LWvF3FKak6B9OtSJmuNyLhX2ouD4cMTxz/yR5HFInhknaYd2jLWOTRTvT8oAw==}
 
   local-pkg@1.1.2:
     resolution: {integrity: sha512-arhlxbFRmoQHl33a0Zkle/YWlmNwoyt6QNZEIJcqNbdrsix5Lvc4HyyI3EnwxTYlZYc32EbYrQ8SzEZ7dqgg9A==}
@@ -3152,6 +3159,10 @@ packages:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
     engines: {node: '>=8'}
 
+  path-expression-matcher@1.6.1:
+    resolution: {integrity: sha512-h7bxdzhHk8Knyc4Tj+jMaa7fEEoUJy7p1qtbVgkYg1Uhpe5Np5VuGXCRZnkZvU+Q42M1vStt0ifa3ueykRJPmQ==}
+    engines: {node: '>=14.0.0'}
+
   path-key@3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
     engines: {node: '>=8'}
@@ -3544,18 +3555,6 @@ packages:
     resolution: {integrity: sha512-o3yWv49B/o4QZk5ZcsALc6t0+eCelPc44zZsLtCQnZPDwFpDYSWcDnrv2TtMmMbQ7uKo3J0HTURCqckw23czNQ==}
     engines: {node: '>=12.0.0'}
 
-  starlight-package-managers@0.12.0:
-    resolution: {integrity: sha512-hAIVzOT0/Git+T2Uwckh2rs51fYiDM6/X+Z2f3LtKMSwOwm+nSUAX2Ilp7k+07LDtxYjmvfTCxhfIBt0PgOF5g==}
-    engines: {node: '>=18.17.1'}
-    peerDependencies:
-      '@astrojs/starlight': '>=0.22.0'
-
-  starlight-showcases@0.3.2:
-    resolution: {integrity: sha512-PX+CDIaOkgmM+KxiD+OEF0NVppbbQia7iMZ1JeHnx0yyDkZCY6U6vtzoxpklhHU/JGHrmV6qj1qxzWS74SolqQ==}
-    engines: {node: '>=22'}
-    peerDependencies:
-      '@astrojs/starlight': '>=0.30.0'
-
   stop-iteration-iterator@1.1.0:
     resolution: {integrity: sha512-eLoXW/DHyl62zxY4SCaIgnRhuMr6ri4juEYARS8E6sCEqzKpOiE521Ucofdx+KnDZl5xmvGYaaKCk5FEOxJCoQ==}
     engines: {node: '>= 0.4'}
@@ -3608,6 +3607,9 @@ packages:
   strip-json-comments@3.1.1:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
+
+  strnum@2.4.1:
+    resolution: {integrity: sha512-M9eUSMT2dCB2cTNPG7UYj6KuK7RJR2SN2+yCV/fTW3xzTCS6EaGZ5pSMgDIjB7r8zSfTGk+dvvn9rTjpVS9Mwg==}
 
   style-to-object@0.4.4:
     resolution: {integrity: sha512-HYNoHZa2GorYNyqiCaBgsxvcJIn7OHq6inEga+E6Ke3m5JkoqpQbnFssk4jwe+K7AhGa2fcha4wSOf1Kn01dMg==}
@@ -4089,6 +4091,10 @@ packages:
       utf-8-validate:
         optional: true
 
+  xml-naming@0.1.0:
+    resolution: {integrity: sha512-k8KO9hrMyNk6tUWqUfkTEZbezRRpONVOzUTnc97VnCvyj6Tf9lyUR9EDAIeiVLv56jsMcoXEwjW8Kv5yPY52lw==}
+    engines: {node: '>=16.0.0'}
+
   xxhash-wasm@1.1.0:
     resolution: {integrity: sha512-147y/6YNh+tlp6nd/2pWq38i9h6mz/EuQ6njIrmW8D1BS5nCqs0P6DG+m6zTGnNz5I+uhZ0SHxBs9BsPrwcKDA==}
 
@@ -4153,15 +4159,9 @@ packages:
 
 snapshots:
 
-  '@astro-community/astro-embed-twitter@0.5.11':
+  '@anany/starlight-theme-rapide@file:docs/starlight-theme-rapide(@astrojs/starlight@0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2)))':
     dependencies:
-      '@astro-community/astro-embed-utils': 0.2.0
-
-  '@astro-community/astro-embed-utils@0.2.0': {}
-
-  '@astro-community/astro-embed-youtube@0.5.10':
-    dependencies:
-      lite-youtube-embed: 0.3.4
+      '@astrojs/starlight': 0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2))
 
   '@astrojs/check@0.9.7(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.9.3)':
     dependencies:
@@ -4255,6 +4255,12 @@ snapshots:
   '@astrojs/prism@4.0.0':
     dependencies:
       prismjs: 1.30.0
+
+  '@astrojs/rss@4.0.18':
+    dependencies:
+      fast-xml-parser: 5.9.3
+      piccolore: 0.1.3
+      zod: 4.3.6
 
   '@astrojs/sitemap@3.7.1':
     dependencies:
@@ -4927,12 +4933,6 @@ snapshots:
 
   '@hideoo/prettier-config@2.0.1': {}
 
-  '@hideoo/starlight-plugins-docs-components@0.4.2(@astrojs/starlight@0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2)))':
-    dependencies:
-      '@astrojs/starlight': 0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2))
-      starlight-package-managers: 0.12.0(@astrojs/starlight@0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2)))
-      starlight-showcases: 0.3.2(@astrojs/starlight@0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2)))
-
   '@hideoo/tsconfig@2.0.3': {}
 
   '@humanfs/core@0.19.1': {}
@@ -5127,6 +5127,8 @@ snapshots:
       '@emnapi/runtime': 1.9.0
       '@tybys/wasm-util': 0.10.1
     optional: true
+
+  '@nodable/entities@2.2.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -5630,6 +5632,8 @@ snapshots:
     dependencies:
       normalize-path: 3.0.0
       picomatch: 2.3.1
+
+  anynum@1.0.1: {}
 
   arg@5.0.2: {}
 
@@ -6693,6 +6697,20 @@ snapshots:
 
   fast-uri@3.0.3: {}
 
+  fast-xml-builder@1.2.0:
+    dependencies:
+      path-expression-matcher: 1.6.1
+      xml-naming: 0.1.0
+
+  fast-xml-parser@5.9.3:
+    dependencies:
+      '@nodable/entities': 2.2.0
+      fast-xml-builder: 1.2.0
+      is-unsafe: 1.0.1
+      path-expression-matcher: 1.6.1
+      strnum: 2.4.1
+      xml-naming: 0.1.0
+
   fastq@1.17.1:
     dependencies:
       reusify: 1.0.4
@@ -7223,6 +7241,8 @@ snapshots:
     dependencies:
       which-typed-array: 1.1.20
 
+  is-unsafe@1.0.1: {}
+
   is-weakmap@2.0.2: {}
 
   is-weakref@1.1.1:
@@ -7311,8 +7331,6 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
-
-  lite-youtube-embed@0.3.4: {}
 
   local-pkg@1.1.2:
     dependencies:
@@ -8044,6 +8062,8 @@ snapshots:
 
   path-exists@4.0.0: {}
 
+  path-expression-matcher@1.6.1: {}
+
   path-key@3.1.1: {}
 
   path-parse@1.0.7: {}
@@ -8583,16 +8603,6 @@ snapshots:
 
   stable-hash-x@0.2.0: {}
 
-  starlight-package-managers@0.12.0(@astrojs/starlight@0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2))):
-    dependencies:
-      '@astrojs/starlight': 0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2))
-
-  starlight-showcases@0.3.2(@astrojs/starlight@0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2))):
-    dependencies:
-      '@astro-community/astro-embed-twitter': 0.5.11
-      '@astro-community/astro-embed-youtube': 0.5.10
-      '@astrojs/starlight': 0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2))
-
   stop-iteration-iterator@1.1.0:
     dependencies:
       es-errors: 1.3.0
@@ -8670,6 +8680,10 @@ snapshots:
   strip-indent@4.1.1: {}
 
   strip-json-comments@3.1.1: {}
+
+  strnum@2.4.1:
+    dependencies:
+      anynum: 1.0.1
 
   style-to-object@0.4.4:
     dependencies:
@@ -9164,6 +9178,8 @@ snapshots:
       strip-ansi: 6.0.1
 
   ws@8.21.0: {}
+
+  xml-naming@0.1.0: {}
 
   xxhash-wasm@1.1.0: {}
 

@@ -11,10 +11,11 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@anany/starlight-theme-rapide": "file:./starlight-theme-rapide",
+    "@astrojs/rss": "^4.0.18",
     "@astrojs/starlight": "^0.38.1",
     "astro": "^6.0.4",
-    "sharp": "^0.34.5",
-    "starlight-theme-rapide": "file:./starlight-theme-rapide"
+    "sharp": "^0.34.5"
   },
   "engines": {
     "node": ">=22.12.0"

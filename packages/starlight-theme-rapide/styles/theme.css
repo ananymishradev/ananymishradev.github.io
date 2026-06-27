@@ -23,7 +23,7 @@
    */
   :root,
   ::backdrop {
-    --sl-color-white: oklch(90% 0.008 var(--sl-hue-base));
+    --sl-color-white: #ffffff;
     --sl-color-gray-1: oklch(80% 0.018 var(--sl-hue-base));
     --sl-color-gray-2: oklch(80% 0.018 var(--sl-hue-base));
     --sl-color-gray-3: oklch(65% 0.013 var(--sl-hue-base));
@@ -81,7 +81,7 @@
     --sl-color-backdrop-overlay: oklch(24% 0.002 var(--sl-hue-base) / 0.7);
 
     --sl-rapide-ui-bg-color: oklch(18% 0 0);
-    --sl-rapide-ui-header-bg-color: oklch(18% 0.002 var(--sl-hue-base) / 0.8);
+    --sl-rapide-ui-header-bg-color: oklch(0% 0 0 / 0.8);
     --sl-rapide-ui-border-color: oklch(28% 0.004 var(--sl-hue-base));
 
     --sl-rapide-ec-marker-bg-color: oklch(27% 0.002 var(--sl-hue-base));
@@ -101,7 +101,7 @@
     --sl-color-gray-5: oklch(88% 0.009 var(--sl-hue-base));
     --sl-color-gray-6: oklch(90% 0.004 var(--sl-hue-base));
     --sl-color-gray-7: oklch(96% 0.003 var(--sl-hue-base));
-    --sl-color-black: oklch(98% 0.002 var(--sl-hue-base));
+    --sl-color-black: #ffffff;
 
     --sl-color-orange-low: oklch(96% 0.02 var(--sl-hue-orange));
     --sl-color-orange: oklch(74% 0.15 var(--sl-hue-orange));
@@ -149,7 +149,7 @@
     --sl-color-backdrop-overlay: oklch(84% 0.003 var(--sl-hue-base) / 0.7);
 
     --sl-rapide-ui-bg-color: oklch(100% 0 0);
-    --sl-rapide-ui-header-bg-color: oklch(98% 0.002 var(--sl-hue-base) / 0.7);
+    --sl-rapide-ui-header-bg-color: oklch(100% 0 0 / 0.8);
     --sl-rapide-ui-border-color: oklch(88% 0.004 var(--sl-hue-base));
 
     --sl-rapide-ec-marker-bg-color: oklch(93% 0.002 var(--sl-hue-base));

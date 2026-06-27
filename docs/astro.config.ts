@@ -18,7 +18,7 @@ export default defineConfig({
       head: [
         {
           tag: 'meta',
-          attrs: { property: 'og:image', content: new URL('og.jpg', site).href },
+          attrs: { property: 'og:image', content: new URL('image.png', site).href },
         },
         {
           tag: 'meta',
@@ -30,6 +30,7 @@ export default defineConfig({
       ],
       components: {
         SiteTitle: './src/components/SiteTitle.astro',
+        Hero: './src/components/Hero.astro',
       },
       plugins: [starlightThemeRapide()],
       sidebar: [
