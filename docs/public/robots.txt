@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ananymishra.dev/sitemap-index.xml
+Sitemap: https://ananymishra.tech/sitemap-index.xml

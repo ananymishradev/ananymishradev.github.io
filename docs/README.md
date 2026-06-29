@@ -1,4 +1,4 @@
-# ananymishra.dev
+# ananymishra.tech
 
 Personal website and blog by Anany Mishra — performance engineering, AI systems, and low-latency computing.
 

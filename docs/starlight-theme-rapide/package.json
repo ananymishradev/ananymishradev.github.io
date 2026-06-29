@@ -2,7 +2,7 @@
   "name": "@anany/starlight-theme-rapide",
   "version": "0.5.2",
   "license": "MIT",
-  "description": "Starlight theme used by ananymishra.dev — a dark/light dual-theme for documentation sites.",
+  "description": "Starlight theme used by ananymishra.tech — a dark/light dual-theme for documentation sites.",
   "author": "Anany Mishra",
   "type": "module",
   "exports": {

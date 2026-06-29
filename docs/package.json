@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "Personal website and blog of Anany Mishra — performance engineering, AI systems, and low-latency computing.",
-  "author": "Anany Mishra <anany.mishra.dev@gmail.com> (https://ananymishra.dev)",
+  "author": "Anany Mishra <anany.mishra.dev@gmail.com> (https://ananymishra.tech)",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -31,7 +31,7 @@
     "low-latency",
     "blog"
   ],
-  "homepage": "https://ananymishra.dev",
+  "homepage": "https://ananymishra.tech",
   "repository": {
     "type": "git",
     "url": "https://github.com/ananymishradev/portfolio.git"

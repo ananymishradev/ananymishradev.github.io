@@ -7,7 +7,7 @@ import rehypeKatex from 'rehype-katex'
 const site =
   process.env['CF_PAGES_URL']
     ? process.env['CF_PAGES_URL']
-    : 'https://ananymishra.dev/'
+    : 'https://ananymishra.tech/'
 
 export default defineConfig({
   markdown: {
