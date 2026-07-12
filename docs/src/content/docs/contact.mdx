@@ -6,6 +6,8 @@ editUrl: false
 lastUpdated: false
 ---
 
+import { LinkCard } from '@astrojs/starlight/components'
+
 <div class="contact-splash">
   <div class="contact-message-section">
     <div class="contact-pitch">
@@ -20,21 +22,20 @@ lastUpdated: false
   </div>
 
   <div class="contact-info-section">
-    <div class="contact-info-card">
-      <h3>Email</h3>
-      <p><a href="mailto:anany.mishra.dev@gmail.com">anany.mishra.dev@gmail.com</a></p>
-    </div>
-    <div class="contact-info-card">
-      <h3>GitHub</h3>
-      <p><a href="https://github.com/ananymishradev">Projects and Work</a></p>
-    </div>
-    <div class="contact-info-card">
-      <h3>Twitter</h3>
-      <p><a href="https://twitter.com/ananymishradev">Random Thoughts</a></p>
-    </div>
-    <div class="contact-info-card">
-      <h3>LinkedIn</h3>
-      <p><a href="https://linkedin.com/in/ananymishradev">Professional Me</a></p>
-    </div>
+    <LinkCard
+      title="GitHub"
+      description="Projects and Work"
+      href="https://github.com/ananymishradev"
+    />
+    <LinkCard
+      title="Twitter"
+      description="Random Thoughts"
+      href="https://twitter.com/ananymishradev"
+    />
+    <LinkCard
+      title="LinkedIn"
+      description="Professional Me"
+      href="https://linkedin.com/in/ananymishradev"
+    />
   </div>
 </div>

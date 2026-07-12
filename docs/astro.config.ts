@@ -59,21 +59,10 @@ export default defineConfig({
       plugins: [starlightThemeRapide()],
       sidebar: [
         { label: 'Start Here', items: ['start-here'] },
-        {
-          label: 'Resources and References',
-          items: [
-            { label: 'CUDA & PyTorch Performance Engineering', link: '/resources/cuda-and-pytorch-performance-engineering/' },
-            { label: 'Low-Latency C++ & Computer Architecture', link: '/resources/low-latency-performance-cpp-and-computer-architecture/' },
-            { label: 'OS Internals & Linux Kernel Bypass', link: '/resources/operating-system-internals-and-linux-kernel-bypass/' },
-            { label: 'HFT System Design', link: '/resources/hft-system-design/' },
-          ],
-        },
-        { label: 'Deep Learning', autogenerate: { directory: 'deep-learning' } },
-        { label: 'PyTorch Internals', autogenerate: { directory: 'pytorch-internals' } },
-        { label: 'GPU Architecture', autogenerate: { directory: 'gpu-architecture' } },
-        { label: 'GPU Programming', autogenerate: { directory: 'gpu-programming' } },
+        { label: 'Inference Engineering', autogenerate: { directory: 'inference-engineering' } },
+        { label: 'Systems Engineering', autogenerate: { directory: 'systems-engineering' } },
+        { label: 'AI Engineering', autogenerate: { directory: 'ai-engineering' } },
         { label: 'Performance Engineering', autogenerate: { directory: 'performance-engineering' } },
-        { label: 'C++ in Production', autogenerate: { directory: 'cpp-in-production' } },
         { label: 'Distributed Systems', autogenerate: { directory: 'distributed-systems' } },
       ],
       social: [
