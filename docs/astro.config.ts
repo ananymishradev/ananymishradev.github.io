@@ -35,8 +35,20 @@ export default defineConfig({
         {
           tag: 'link',
           attrs: {
-            rel: 'stylesheet',
-            href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
+            rel: 'preload',
+            href: '/fonts/cormorant-garamond/cormorant-garamond-latin-500-normal.woff2',
+            as: 'font',
+            type: 'font/woff2',
+            crossorigin: 'anonymous',
+          },
+        },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'preload',
+            href: '/fonts/cormorant-garamond/cormorant-garamond-latin-700-normal.woff2',
+            as: 'font',
+            type: 'font/woff2',
             crossorigin: 'anonymous',
           },
         },
