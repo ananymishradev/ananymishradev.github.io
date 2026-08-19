@@ -17,7 +17,7 @@ export default defineConfig({
   integrations: [
     starlight({
       credits: false,
-      customCss: ['./src/styles/custom.css'],
+      customCss: ['./src/fonts/font-face.css', './src/styles/custom.css'],
       editLink: {
         baseUrl: 'https://github.com/ananymishradev/portfolio',
       },
@@ -26,7 +26,7 @@ export default defineConfig({
           tag: 'link',
           attrs: {
             rel: 'preload',
-            href: '/fonts/cormorant-garamond/cormorant-garamond-latin-400-normal.woff2',
+            href: '/_astro/cormorant-garamond-latin-400-normal.B-1hWBU7.woff2',
             as: 'font',
             type: 'font/woff2',
             crossorigin: 'anonymous',
@@ -36,7 +36,7 @@ export default defineConfig({
           tag: 'link',
           attrs: {
             rel: 'preload',
-            href: '/fonts/cormorant-garamond/cormorant-garamond-latin-500-normal.woff2',
+            href: '/_astro/cormorant-garamond-latin-500-normal.BsRWmXhO.woff2',
             as: 'font',
             type: 'font/woff2',
             crossorigin: 'anonymous',
@@ -46,7 +46,17 @@ export default defineConfig({
           tag: 'link',
           attrs: {
             rel: 'preload',
-            href: '/fonts/cormorant-garamond/cormorant-garamond-latin-700-normal.woff2',
+            href: '/_astro/cormorant-garamond-latin-600-normal.Co1r35X9.woff2',
+            as: 'font',
+            type: 'font/woff2',
+            crossorigin: 'anonymous',
+          },
+        },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'preload',
+            href: '/_astro/cormorant-garamond-latin-700-normal.DajfzrDU.woff2',
             as: 'font',
             type: 'font/woff2',
             crossorigin: 'anonymous',
