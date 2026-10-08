@@ -1,3 +1,0 @@
-name = "anany-mishra"
-pages_build_command = "pnpm run build"
-pages_build_output_dir = "./dist"

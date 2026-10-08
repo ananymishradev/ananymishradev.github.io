@@ -1,34 +1,29 @@
+# build output
+dist/
+.output/
+
+# dependencies
+node_modules/
+
+# generated types
+.astro/
+
+# environment variables
 .env
-.astro
+.env.production
+
+# macOS
 .DS_Store
-.eslintcache
-.idea
-.next
-.turbo
-.vercel
-.vscode/*
-!.vscode/extensions.json
-!.vscode/launch.json
-!.vscode/settings.json
-!.vscode/tasks.json
-.vscode-test
-.vscode-test-web
-*.local
-*.log
-*.pem
-*.tsbuildinfo
-build
-coverage
-dist
-dist-ssr
-lerna-debug.log*
-logs
-next-env.d.ts
-node_modules
+
+# logs
 npm-debug.log*
-out
-pnpm-debug.log*
-releases
-test-results
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+
+# lychee's link-check cache, written when the workflow's command is run locally
+.lycheecache
+
+# editor / agent local state
+.codex/
+.claude/
