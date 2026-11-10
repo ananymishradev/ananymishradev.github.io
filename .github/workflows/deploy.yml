@@ -1,42 +1,38 @@
-name: Deploy to GitHub Pages
+name: Deploy demo
 
 on:
-  # Deploy on every push to the default branch.
   push:
     branches: [main]
-  # Allow manual runs from the Actions tab.
   workflow_dispatch:
 
-# Allow GITHUB_TOKEN to deploy to Pages and verify the deployment origin.
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment; let in-progress runs finish.
 concurrency:
   group: pages
   cancel-in-progress: false
 
+env:
+  # Served from https://<owner>.github.io/<repo>/, so the site needs both values at build time.
+  SITE_URL: https://${{ github.repository_owner }}.github.io
+  BASE_PATH: /${{ github.event.repository.name }}
+
 jobs:
   build:
+    name: build
+    # Remove this line to deploy your own copy (and enable Pages with the "GitHub Actions" source).
+    if: github.repository == 'nicomiguelino/astro-seasons'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout your repository using git
         uses: actions/checkout@v7
-      - name: Read Node version
-        id: nvmrc
-        # withastro/action takes a version string, not a version file, so read
-        # .nvmrc here instead of hardcoding the version a second time.
-        run: echo "version=$(cat .nvmrc)" >> "$GITHUB_OUTPUT"
-      - name: Build with Astro
+      - name: Install, build, and upload your site
         uses: withastro/action@v6
-        # withastro/action installs deps, runs the build, and uploads ./dist
-        # as the Pages artifact. `site`/`base` come from astro.config.mjs.
-        with:
-          node-version: ${{ steps.nvmrc.outputs.version }}
 
   deploy:
+    name: deploy
     needs: build
     runs-on: ubuntu-latest
     environment:

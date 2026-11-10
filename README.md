@@ -1,388 +1,192 @@
-<div align="center">
+# Seasons
 
-# ⌁ Anany Mishra
+A season-aware neobrutalist theme for your blog, built with [Astro](https://astro.build/) and Tailwind CSS. The palette follows the calendar, with a light and a dark mode for every season. See the [screenshots](#seasonal-theme) below.
 
-**A minimal, neutral, and modern portfolio + blog theme for Astro.**
+## Create a project from this template
 
-A calm neutral base, a single configurable accent color, generous whitespace, and clean editorial typography — built on Astro 7 with Content Collections, tags, an RSS feed, and first-class dark mode.
-
-<br />
-
-[![Live site](https://img.shields.io/badge/Live_site-↗-1a1a1a?style=for-the-badge)](https://ananymishra.tech/)
-
-<br />
-
-[![Lighthouse: 100/100/100/100](https://img.shields.io/badge/Lighthouse-100%20%C2%B7%20100%20%C2%B7%20100%20%C2%B7%20100-0cce6b?style=flat-square&logo=lighthouse&logoColor=white)](#lighthouse)
-
-[![License](https://img.shields.io/github/license/ananymishradev/portfolio?style=flat-square&color=1a1a1a)](./LICENSE)
-<br />
-[![Astro](https://img.shields.io/badge/Astro-7-BC52EE?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Node.js](https://img.shields.io/badge/Node.js-22+-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
-[![MDX](https://img.shields.io/badge/MDX-1B1F24?style=flat-square&logo=mdx&logoColor=white)](https://mdxjs.com)
-
-<br />
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/preview-dark.png" />
-  <img src=".github/assets/preview-light.png" alt="Anany Mishra portfolio home page" width="800" />
-</picture>
-
-<table>
-  <tr>
-    <td><img src=".github/assets/preview-post-dark.png" alt="Blog post with table of contents and syntax highlighting, dark mode" /></td>
-    <td><img src=".github/assets/preview-works-light.png" alt="Works index page, light mode" /></td>
-  </tr>
-</table>
-
-</div>
-
-> **Keel** — the structural backbone of a ship. The name reflects the design intent: stripped of ornament, all structure and spine.
-
-> [!NOTE]
-> **Building a directory or listings site?** Check out **[Almanac](https://almanac.p4ni.com)** —
-> a premium Astro + Cloudflare directory theme by the same author, with full-text search,
-> an admin panel, moderated submissions, and monetization built in.
-
-## Features
-
-- **Portfolio + blog** — dedicated `works` and `blog` content collections with individual pages.
-- **One-file site config** — site name, description, nav, and footer live in `src/consts.ts`.
-- **One-line accent color** — retune the whole theme by changing a single CSS variable (`--color-accent`).
-- **Light + dark mode** — respects `prefers-color-scheme` and remembers a manual toggle (no flash on load).
-- **Self-hosted type** — Fraunces (display), Public Sans (body), and JetBrains Mono (code) via `@fontsource`, no external font CDN.
-- **i18n-ready** — every UI string lives in a typed dictionary under `src/i18n/`; one `SITE.locale` line switches the chrome, date formats, `<html lang>`, and the RSS language. `en` and `ja` included.
-- **Tags** — per-tag archive pages at `/blog/tags/[tag]`.
-- **Pagination** — blog and tag archives paginate every 10 posts with hairline prev/next links.
-- **Static search** — zero-backend full-text search at `/search` powered by [Pagefind](https://pagefind.app/), indexed at build time.
-- **Auto OG images** — per-post and per-work Open Graph images rendered at build time with `satori` + `sharp`.
-- **Table of contents** — blog posts get an auto-generated sidebar TOC from their headings.
-- **Optional comments** — [Giscus](https://giscus.app) threads on blog posts, opt-in via `src/consts.ts`, lazy-loaded and theme-synced; disabled builds ship zero Giscus bytes.
-- **RSS feed** — generated at `/rss.xml` with `@astrojs/rss`.
-- **Syntax highlighting** — Shiki dual themes (light/dark) wired to the active color scheme.
-- **SEO-ready** — canonical URLs, Open Graph, Twitter cards, and a sitemap out of the box.
-- **JSON-LD structured data** — `WebSite` on the home page, `BlogPosting` + `BreadcrumbList` on posts (author configurable via `SITE.author` in `src/consts.ts`).
-- **Responsive & accessible** — fluid type, hairline structure, visible focus rings.
-- **One-click deploy** — bundled GitHub Pages workflow; or ship the static `dist/` to Cloudflare Pages, Vercel, Netlify, or any static host.
-
-## Lighthouse
-
-Every page of the demo scores **100 across all four categories** — with search,
-pagination, and generated OG images all switched on.
-
-| Page                               | Performance | Accessibility | Best Practices | SEO |
-| ---------------------------------- | :---------: | :-----------: | :------------: | :-: |
-| Home `/`                           |     100     |      100      |      100       | 100 |
-| Blog index `/blog/`                |     100     |      100      |      100       | 100 |
-| Blog post `/blog/baseline-rhythm/` |     100     |      100      |      100       | 100 |
-| Works `/works/`                    |     100     |      100      |      100       | 100 |
-| Search `/search/`                  |     100     |      100      |      100       | 100 |
-
-<sub>Lighthouse 13.4.1, desktop preset, local production build. Reproduce it yourself:</sub>
+Generate a new project from this repository with the Astro CLI. Use the package manager you prefer:
 
 ```sh
-npm run build && npm run preview
-npx lighthouse http://localhost:4321/ --preset=desktop --view
+bun create astro@latest -- my-site --template nicomiguelino/astro-seasons
+pnpm create astro@latest my-site --template nicomiguelino/astro-seasons
+bun create astro@latest my-site --template nicomiguelino/astro-seasons
 ```
 
-Measured locally on purpose. First Contentful Paint, Largest Contentful Paint,
-Total Blocking Time, and Cumulative Layout Shift are perfect against the hosted
-demo too, but Speed Index swings with network conditions — repeated runs against
-GitHub Pages land anywhere from 0.3 s to 1.9 s, which is enough to move the
-Performance score between 97 and 100. A local build measures the theme rather
-than the hop to the CDN.
+To use a specific branch or tag, append it to the template name: `--template nicomiguelino/astro-seasons#branch-name`.
 
-## Tech stack
+The CLI copies the template, offers to install dependencies, and offers to initialize a git repository. Accept the git prompt (or run `git init` yourself before `bun install`) so the Husky pre-commit hook gets set up.
 
-Astro 7 · TypeScript · Content Collections (Content Layer API) · MDX · `@astrojs/sitemap` · `@astrojs/rss` · Shiki. Requires **Node.js 22+**.
+The template ships a `package-lock.json`. If you use another package manager, delete it and let your package manager generate its own lockfile. The scripts below work with any of them (for example `pnpm run dev` or `bun run dev`).
 
-## Quick start
+After generating:
 
-Scaffold a new project directly from this template:
+1. Replace the placeholders in `src/lib/site.ts` (`SITE_NAME`, `AUTHOR_NAME`, `SITE_URL`, `GITHUB_URL`, and so on). `astro.config.mjs` reads `SITE_URL` from there.
+2. Set `SOURCE_URL` in `src/lib/site.ts` to the repository that builds your site (see [License](#license)).
+3. If you deploy to a sub-path (a GitHub Pages project page at `https://<user>.github.io/<repo>/`), see [Deploying under a sub-path](#deploying-under-a-sub-path).
+4. Replace the example posts in `src/content/blog/` and the pages under `src/pages/` (such as `experience/` and `projects/`) with your own content.
+
+Prefer to work from a clone? Run `git clone https://github.com/nicomiguelino/astro-seasons.git` and follow the steps below.
+
+## Getting started
+
+Install the dependencies and run the project:
 
 ```sh
-npm install
-```
-
-Or click **Use this template** on GitHub, then:
-
-```sh
-npm install
-npm run dev      # start the dev server at http://localhost:4321
-npm run build    # build the static site to ./dist
-npm run preview  # preview the production build
-npm run deploy:pages # build and deploy to Cloudflare Pages with Wrangler
-```
-
-### Cloudflare Pages
-
-The repository includes `wrangler.toml` configured for Cloudflare Pages. Authenticate
-with Wrangler, create a Pages project named `anany-mishra`, and run:
-
-```sh
-npx wrangler login
-npm run deploy:pages
-```
-
-The generated sitemap uses `https://ananymishra.tech` from `astro.config.mjs`.
-
-## Configuration
-
-### Site identity
-
-Site name, default meta description, RSS description, share image, nav items, and footer text all live in one file — `src/consts.ts`:
-
-```ts
-export const SITE = {
-  title: 'Anany Mishra',
-  description: 'The personal portfolio and blog of Anany Mishra.',
-  author: 'Your Name', // emitted in JSON-LD BlogPosting; '' omits it
-  // ...
-};
-```
-
-### Social links
-
-Declare social profiles in `src/consts.ts` — they render as inline SVG icons in the footer (self-hosted, `currentColor`, so they follow light/dark automatically):
-
-```ts
-export const SOCIAL_LINKS: readonly SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/<user>/<repo>', icon: 'github' },
-  { label: 'RSS feed', href: '/rss.xml', icon: 'rss' },
-];
-```
-
-Built-in icons: `github`, `x`, `linkedin`, `rss`, `email`. Site-root paths (like `/rss.xml`) get the configured `base` applied automatically; `mailto:` and full URLs are used as-is.
-
-### Language
-
-Set `SITE.locale` in `src/consts.ts` to a BCP 47 tag. One line switches every
-string the theme renders, plus `<html lang>`, `og:locale`, date formatting, and
-the RSS `<language>` element — no template edits:
-
-```ts
-export const SITE = {
-  locale: 'ja', // ← 'en' and 'ja' ship with the theme
-  // ...
-};
-```
-
-Dates go through `Intl.DateTimeFormat`, so field order follows the locale too
-(`March 9, 2026` → `2026年3月9日`).
-
-#### Adding a language
-
-1. Copy `src/i18n/ja.ts` to `src/i18n/<tag>.ts` and translate the values. The
-   file is typed as `UIStrings`, so a missing or misspelled key is a build
-   error rather than a silent fallback to English.
-2. Register it in `src/i18n/index.ts`:
-
-   ```ts
-   import { fr } from './fr';
-
-   export const DICTIONARIES: Record<string, UIStrings> = { en, ja, fr };
-   ```
-
-3. Set `SITE.locale` to the new tag.
-
-`src/i18n/en.ts` is the reference dictionary and defines the shape — add new
-keys there first. It holds **UI chrome only** (navigation, pagination, button
-and section labels, aria labels, the 404 copy): roughly 60 short strings, so a
-new locale is a small pull request. The placeholder prose on the home and about
-pages stays in those `.astro` files, where you would edit it anyway.
-
-Regional variants fall back to their base language's strings (`en-GB` uses the
-`en` dictionary) while keeping their own date format, so they only need their
-own file if the wording actually differs.
-
-Nav labels come from the same dictionary via `labelKey`. A page you add yourself
-can skip the dictionary and use a literal `label` instead — the type requires
-exactly one of the two:
-
-```ts
-export const NAV_ITEMS: readonly NavItem[] = [
-  { href: '/', labelKey: 'nav.home' },
-  { href: '/uses/', label: 'Uses' },
-];
+bun install
+bun dev           # dev server on :4321
+bun build         # production build
+bun preview       # preview the production build
+bun check         # astro type checking
+bun lint:check    # lint with ESLint
+bun lint:fix      # lint and apply safe fixes
+bun format:check  # check formatting with Prettier
+bun format:fix    # format files with Prettier
+bun test:e2e      # Playwright E2E and screenshot tests
 ```
 
 > [!NOTE]
-> **Non-Latin scripts and generated images.** The OG image route bundles
-> **Latin subsets** of Fraunces and Public Sans to keep builds light, and Satori
-> draws any missing glyph as an empty box. Post titles in a non-Latin script
-> need a font that covers it — install e.g. `@fontsource/noto-sans-jp` and point
-> `src/pages/og/[collection]/[slug].png.ts` at it. (The theme's own labels in
-> those images stay Latin for this reason.)
->
-> Pagefind indexes by the document's `lang`, so `<html lang="ja">` gets proper
-> Japanese segmentation. Its Default UI strings ("Search", "Clear") are
-> translated for many languages but not all — check yours.
+> `bun install` also sets up a Husky pre-commit hook that runs `lint:check`, `format:check`, and `check`. Fix failures before committing.
 
-### Comments (optional)
+## Seasonal theme
 
-Blog posts can carry a [Giscus](https://giscus.app) thread — comments backed by
-GitHub Discussions, so there is still no backend to run. **Off by default:** with
-`enabled: false`, not a single byte of Giscus markup, CSS, or script reaches the
-browser — the whole component, styles included, sits behind the flag.
+The site switches palettes by date. Every family has a light and a dark variant, defined in `src/styles/palettes.css`:
 
-To turn it on:
+- `neon-*`: not tied to a date, only available from the theme picker
+- `autumn-*`: used from Sept 22 to Dec 21
+- `winter-*`: used from Dec 22 to Mar 19
+- `spring-*`: used from Mar 20 to Jun 20
+- `summer-*`: used from Jun 21 to Sept 21
 
-1. Make the repository public and enable **Discussions** in its settings.
-2. Install the [giscus GitHub App](https://github.com/apps/giscus) on it.
-3. Fill in the generated values from [giscus.app](https://giscus.app) in
-   `src/consts.ts`:
+|        | Light                                              | Dark                                             |
+| ------ | -------------------------------------------------- | ------------------------------------------------ |
+| Autumn | ![Autumn light](screenshots/home-autumn-light.png) | ![Autumn dark](screenshots/home-autumn-dark.png) |
+| Winter | ![Winter light](screenshots/home-winter-light.png) | ![Winter dark](screenshots/home-winter-dark.png) |
+| Spring | ![Spring light](screenshots/home-spring-light.png) | ![Spring dark](screenshots/home-spring-dark.png) |
+| Summer | ![Summer light](screenshots/home-summer-light.png) | ![Summer dark](screenshots/home-summer-dark.png) |
 
-```ts
-export const GISCUS: GiscusConfig = {
-  enabled: true,
-  repo: '<user>/<repo>',
-  repoId: 'R_...', // from giscus.app
-  category: 'Announcements',
-  categoryId: 'DIC_...', // from giscus.app
-  mapping: 'pathname', // survives retitling, unlike 'title'
-  // ...
-};
+How it works:
+
+- The family is picked from the visitor's local date on every page load, so no rebuild is needed when a season starts or ends.
+- The mode (light or dark) comes from the theme toggle, falling back to `prefers-color-scheme`. Only the mode is stored (`site-mode` in `localStorage`), so a saved preference carries across seasons.
+- The legacy `site-palette` value is migrated to `site-mode` and removed.
+- `initializePalette()` in `src/lib/palette.ts` sets `data-palette` on `<html>`. `Layout.astro` calls it from `<head>`, and `body` stays hidden until the attribute is set (visible when scripting is off) to avoid a flash of the wrong colors.
+- The theme toggle switches between light and dark within the active family.
+- The theme picker in the navbar (before the light/dark toggle) overrides the date: Automatic (follow the date, the default), Autumn, Winter, Spring, Summer (under a "Seasons" divider), or Neon (under an "Other" divider). The choice is stored in `localStorage` as `site-theme` (removed for Automatic), and the matching falling effect follows it.
+
+Autumn, winter and spring each have a falling effect on the home page (`FallingLeaves`, `FallingSnow`, `FallingPetals`). Summer has two ambient effects instead: `HeatShimmer` (an SVG displacement filter that makes the page content shimmer) and `Sunlight` (a pulsing warm glow in the top-right corner). Every effect is shown only under its palettes and when `prefers-reduced-motion` allows it.
+
+To change the dates, edit `seasons` in `PALETTE_CONFIG` (`MMDD` numbers, inclusive; a range with `start` after `end` wraps the new year). To add a season, add it to `THEME_CHOICES` and the picker options in `src/components/header/ThemePicker.astro`, then add `[data-palette='<name>-light']` and `<name>-dark` blocks to `palettes.css`, add its name to `PaletteFamily`, and add its range to `seasons`.
+
+To preview a season, set it in the browser console, e.g. `document.documentElement.dataset.palette = 'autumn-dark'`.
+
+## Testing
+
+Tests use [Playwright](https://playwright.dev) and live in `src/tests/`:
+
+- `src/tests/e2e/`: behavior checks, e.g. the home page title and which falling particles show in each season
+- `src/tests/screenshots/`: captures the home, blog, blog post, experience, projects, tags and 404 pages in light and dark, one spec per page
+- `src/tests/fixtures/blog/`: fixture posts the Playwright build uses in place of the real ones
+
+Set up once per machine:
+
+```sh
+npx playwright install chromium
 ```
 
-The widget loads only when the reader scrolls near it (`IntersectionObserver`),
-so it never competes with the article for bandwidth, and its theme follows the
-header's light/dark toggle live — set `lightTheme` / `darkTheme` to any Giscus
-theme name or a URL to your own theme CSS. If the embed never appears — a
-content blocker, an offline reader, or an unfinished repository setup — a link
-to the discussion thread replaces it rather than leaving an empty box.
+Then run the tests. Playwright builds the site and serves it with `astro preview` on port 4322, so it never collides with the dev server on :4321:
 
-### Site URL
-
-Set your deployed URL in `astro.config.mjs` — it powers canonical links, the sitemap, and RSS:
-
-```js
-export default defineConfig({
-  site: 'https://your-domain.com',
-  // ...
-});
+```sh
+bun test:e2e                                        # everything
+npx playwright test src/tests/e2e                       # E2E only
+npx playwright test src/tests/screenshots               # screenshots only
+npx playwright test --ui                                # interactive runner
+npx playwright show-report                              # open the last HTML report
 ```
 
-### Base path
+### Screenshots
 
-Internal links and assets are routed through a `withBase()` helper (`src/lib/url.ts`), so the theme works whether it's served from a domain root or a subpath. Serving from a subpath — like a GitHub Pages **project site** at `https://<user>.github.io/<repo>/` — just needs `site` + `base`:
+- Each of those pages is captured at 1920x1200 in light and dark. The home page is captured once for each season, and the other pages in summer only.
+- The clock is pinned (July 15 for summer, Oct 15 for autumn, Jan 15 for winter, Apr 15 for spring), so results don't depend on today's date.
+- `falling-particles` captures the home page with the falling effects frozen mid-fall (autumn, winter and spring; summer has no particles), since the other screenshots disable animations and so hide the particles. Names look like `falling-particles-autumn-dark.png`.
+- The color scheme is emulated with `prefers-color-scheme`.
+- Content is pinned too. The Playwright build sets `USE_FIXTURE_POSTS`, which makes the content collection in `src/content.config.ts` load the posts in `src/tests/fixtures/blog/` instead of `src/content/blog/`. Adding or editing a real post leaves `screenshots/` unchanged, and `blog-post` points at `/blog/fixture-post-one/`.
+- Fixture posts have fixed titles, tags, and dates. Edit them only when a screenshot should change, and keep a word like "tool" in one of them, since the search E2E spec queries it.
+- Screenshots are written to `screenshots/` (overwriting the previous ones) and are not part of the deployed site. Names look like `home-autumn-dark.png` and `blog-post-summer-dark.png`.
+- They are captured, not compared, so the tests don't fail on visual changes. Review the images in `git diff` before committing.
+- To capture another page, create `src/tests/screenshots/<page>.spec.ts` that calls `defineScreenshotTests('<page>', '/<path>/')` from `./support`. Pass `[SUMMER_SEASON, AUTUMN_SEASON, WINTER_SEASON, SPRING_SEASON]` as a third argument to cover every palette.
 
-```js
-export default defineConfig({
-  site: 'https://<user>.github.io',
-  base: '/<repo>',
-});
+The `Checks` workflow runs lint, format, and E2E as parallel jobs after a shared dependency setup, on pushes and pull requests to `main`. It can also be started manually.
+
+## Deploying under a sub-path
+
+Served from the root of a domain (a `<user>.github.io` repository or a custom domain), the site needs no extra setup. Served from a sub-path (a GitHub Pages project page at `https://<user>.github.io/<repo>/`), set two environment variables at build time:
+
+```sh
+SITE_URL=https://<user>.github.io BASE_PATH=/<repo> bun build
 ```
 
-For a custom domain or a `<user>.github.io` **root site**, omit `base` (or set it to `'/'`).
+`astro.config.mjs` passes them to Astro's `site` and `base` options. With neither set, the build is for a domain root. `.github/workflows/deploy.yml` sets both from the repository owner and name and deploys to GitHub Pages. To use it for your own copy, remove the `if: github.repository == ...` line, then set **Settings > Pages > Source** to **GitHub Actions**.
 
-## Customization
+Astro's `base` only rewrites URLs that Astro generates itself (stylesheets, scripts, and fonts referenced from CSS). Root-absolute paths you write by hand are not rewritten, so wrap them with `withBase()` from `src/lib/paths.ts`:
 
-### Accent color
-
-Change one line in `src/styles/global.css`. Hover and soft variants derive automatically:
-
-```css
-:root {
-  --color-accent: oklch(0.54 0.14 35); /* ← your brand color */
-}
-```
-
-### Fonts
-
-Font families are CSS variables (`--font-display`, `--font-body`, `--font-mono`) in `src/styles/global.css`. Swap a face by installing another `@fontsource` package, importing it in `src/layouts/BaseLayout.astro`, and updating the variable.
-
-### Dark mode
-
-Neutral palettes for both schemes live in `src/styles/global.css` under `:root`, `[data-theme='light']`, and `[data-theme='dark']`. The toggle in the header persists the choice to `localStorage`.
-
-## Authoring content
-
-Add Markdown/MDX files under `src/content/`:
-
-- `src/content/works/*.md` — portfolio entries
-- `src/content/blog/*.md` — blog posts
-
-### Works frontmatter
-
-<!-- prettier-ignore -->
-```yaml
+```astro
 ---
-title: Project name
-description: One-line summary.
-tech: ['Astro', 'TypeScript']
-link: https://example.com        # optional — live link
-repo: https://github.com/...     # optional — source
-thumbnail: ./cover.png           # optional — relative image
-order: 1                         # optional — manual sort
-publishDate: 2026-06-01
+import { withBase } from '@/lib/paths';
 ---
+
+<a href={withBase('/blog/')}>Blog</a>
 ```
 
-### Blog frontmatter
+This applies to `href`, `src`, and `fetch` URLs in `.astro` and `.ts` files. In Markdown, use relative links (for example `../markdown-features/`) so they work under any base. `withBase()` returns the path unchanged when there is no base.
 
-<!-- prettier-ignore -->
-```yaml
----
-title: Post title
-publishDate: 2026-06-01
-description: One-line summary for listings, SEO, and RSS.
-tags: ['design', 'astro']
-draft: false                     # true hides it from build output
-heroImage: ./hero.png            # optional — relative image
----
-```
+## Customizing
+
+Site-wide values (site name, author name, description, job title, site URL, the GitHub and LinkedIn profile links, and the blog, tags, experience, and projects page descriptions) live in `src/lib/site.ts`. The header, footer, page titles, RSS feed, search, and structured data all read from it, and the letter in the header logo is the first character of `SITE_NAME`. Everything else to customize:
+
+- `src/components/header/index.astro` and `src/components/layout/Footer.astro`: navigation, header icons, footer
+- `src/pages/index.astro`: the home page heading and the intro card
+- `src/components/experience/` and `src/pages/experience/index.astro`: the experience page. Each job is one component built on `ExperienceEntry.astro`. Rename, edit, or add components, then list them in `src/components/experience/index.astro`
+- `src/components/projects/` and `src/lib/projects.ts`: the projects page. Edit the `projects` array in `index.astro` (name, description, technologies, and a `links` array of `{ kind, url }`, with an optional `isCooking` flag), add link kinds in `src/lib/projects.ts`, and update the matching body in `src/lib/search.ts`
+- `src/lib/search.ts`: the search entries for the static pages (home, blog, tags, experience, projects). Their descriptions come from `site.ts`, but the home, experience, and projects bodies are plain text, so update them when you change those pages
+- `public/favicon.svg`: the tab icon, a static file that doesn't follow `SITE_NAME`, so replace it with your own
+- `src/lib/palette.ts`: the seasonal palette logic and its config (storage keys, season dates); see [Seasonal theme](#seasonal-theme)
+- `src/lib/colors.ts`: the color tokens listed on the `/colors/` page; add a token here when you add one to `src/styles/palettes.css`
+- `public/robots.txt`: the sitemap URL (a static file, so it can't import from `site.ts`). Crawlers only read `robots.txt` at the root of a domain, so it has no effect on a sub-path deploy
+- `public/assets/og.png`: social preview image, 1200x630. It's a screenshot of the autumn home page, so replace it with your own
+
+## Writing posts
+
+Posts are markdown files in `src/content/blog/` with `title`, `description`, `date`, optional `tags`, and optional `draft` frontmatter. Each tag links to its archive page under `/tags/`. `markdown-features.md` shows the frontmatter and every supported markdown feature, and `make-it-yours.md` is a short customization guide. Delete both when you add your own posts.
 
 ## Project structure
 
 ```
 src/
-  consts.ts          # site name, description, locale, nav, footer
-  content/           # works/ and blog/ Markdown & MDX entries
-  content.config.ts  # collection schemas (Content Layer API)
-  i18n/              # UI dictionaries (en, ja) + t() and formatDate()
-  layouts/           # BaseLayout (head, nav, theme toggle)
-  pages/             # routes: /, /about, /works, /blog, tags, rss.xml
-  styles/            # global.css design tokens
-astro.config.mjs     # site URL, integrations, Shiki config
+  components/     # reusable UI, grouped by feature (props are documented in each component's frontmatter)
+  content/blog/   # posts as markdown
+  lib/            # post and tag helpers, palette config, particle shapes, color token list, site constants
+  pages/          # index (home), blog/, experience/, projects/, colors/, tags/, 404, rss
+  styles/         # global styles, design tokens, palette definitions (Tailwind CSS)
+  tests/          # Playwright specs: e2e/ and screenshots/
+screenshots/      # committed screenshot baselines (not deployed)
+public/
+  assets/         # font, og image
 ```
-
-## Deployment
-
-### GitHub Pages
-
-A workflow at `.github/workflows/deploy.yml` builds the site and publishes it on every push to `main`.
-
-1. Set `site` and `base` in `astro.config.mjs` to match your repository (see [Base path](#base-path)).
-2. In the repository, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
-3. Push to `main` (or run the workflow manually from the **Actions** tab). Your site goes live at `https://<user>.github.io/<repo>/`.
-
-### Other static hosts
-
-`npm run build` emits a static `dist/` that deploys as-is to Cloudflare Pages, Vercel, Netlify, or any static host. Drop `base` from `astro.config.mjs` when serving from a domain root.
-
-## Changelog
-
-Notable changes are recorded in [CHANGELOG.md](./CHANGELOG.md), and tagged
-versions are tracked in the repository history.
-Because this is a template rather than a dependency, upgrading means porting the
-changes you want into your own copy — each entry names the files it touches.
-
-## Contributing
-
-Bug reports, docs fixes, and focused pull requests are welcome. See
-[CONTRIBUTING.md](./CONTRIBUTING.md) for dev setup, project structure, and the
-two design rules the theme holds to (zero client JS by default; all
-configuration in `src/consts.ts`).
-
-## More themes by kpab
-
-- **[Almanac](https://almanac.p4ni.com)** (premium) — a directory theme on Astro + Cloudflare
-  Workers + D1: bm25 full-text search, admin panel, moderated submissions, and featured-listing
-  monetization. [Get it on Gumroad →](https://kpab.gumroad.com/l/almanac)
-- [astro-haze](https://github.com/kpab/astro-haze) — glassmorphism theme for blogs, portfolios & landing pages
-- [Kepler](https://github.com/kpab/astro-kepler) — navy × orange theme for blogs, portfolios & landing pages
-- [Darkness](https://github.com/kpab/astro-darkness) — dark portfolio theme with a Three.js particle background
 
 ## License
 
-[MIT](./LICENSE)
+[AGPL-3.0-or-later](LICENSE).
+
+This project is a modified version of [astro-palette](https://github.com/joshruggles/astro-palette) by Josh Ruggles, which is also licensed under AGPL-3.0-or-later. It was modified by Nico Miguelino in 2026. The changes include the season-aware themes and seasonal effects, the neobrutalist design, Tailwind CSS, Fuse.js search, the added pages and components, and the linting, formatting, and testing setup. The full change history is in this repository's git log.
+
+If you deploy a modified version of this project as a website, [AGPL-3.0 section 13](https://www.gnu.org/licenses/agpl-3.0.html#section13) requires you to offer your users the corresponding source code, for example with a link to your repository in the site footer. The site name in the footer already links to the source; set `SOURCE_URL` in `src/lib/site.ts` to the repository that builds your site.
+
+With thanks to:
+
+- [astro-palette](https://github.com/joshruggles/astro-palette) by Josh Ruggles, the template this site was generated from (AGPL-3.0-or-later)
+- [herdr](https://github.com/ogulcancelik/herdr) by Oğulcan Çelik, the website theme this one grew out of, and the reason it is AGPL-3.0-or-later
+- Style: [Neubrutalism](https://neubrutalism.com/), the design style behind the hard borders, offset shadows, and bold colors
+- Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/), under the [SIL Open Font License 1.1](https://github.com/JetBrains/JetBrainsMono/blob/master/OFL.txt)
+- Icons: [Tabler Icons](https://tabler.io/icons) (MIT)
+- Home page photo: [Mark Olsen](https://unsplash.com/photos/a-close-up-of-a-cat-looking-at-the-camera-rj4KLIcDwwc) on Unsplash
+- Search: [Fuse.js](https://www.fusejs.io) (Apache-2.0)

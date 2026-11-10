@@ -1,27 +1,25 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
-import { withBase } from '../lib/url';
-import { SITE } from '../consts';
-import { locale } from '../i18n';
+import { withBase } from '@/lib/paths';
+import { postSlug } from '@/lib/posts';
+import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
 
 export async function GET(context: APIContext) {
-  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-  );
+  const posts = (await getCollection('blog'))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return rss({
-    title: SITE.title,
-    description: SITE.rssDescription,
-    site: context.site ?? 'https://example.com',
-    // Feed readers use <language> to pick a reading direction and hyphenation.
-    customData: `<language>${locale}</language>`,
+    title: `RSS — ${SITE_NAME}`,
+    description: SITE_DESCRIPTION,
+    site: new URL(withBase('/'), context.site!).toString(),
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
-      pubDate: post.data.publishDate,
-      link: withBase(`/blog/${post.id}/`),
-      categories: post.data.tags,
+      pubDate: post.data.date,
+      link: `blog/${postSlug(post)}/`,
     })),
+    customData: '<language>en-us</language>',
   });
 }
