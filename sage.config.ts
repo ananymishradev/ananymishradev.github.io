@@ -34,7 +34,7 @@ export default defineSageConfig({
       name: "linkedin",
       url: "https://www.linkedin.com/in/ananymishradev",
     },
-    { name: "twitter", url: "https://twitter.com/ananymishra" },
-    { name: "mail", url: "mailto:anany.mishra.real@gmail.com" },
+    { name: "twitter", url: "https://twitter.com/ananymishradev" },
+    { name: "mail", url: "mailto:anany.mishra.dev@gmail.com" },
   ],
 });

@@ -20,9 +20,9 @@ I have room for a couple of projects at a time, and the first call is a flame gr
 ## Getting in touch
 
 - [GitHub](https://github.com/ananymishradev) — all of the above, in source
-- [LinkedIn](https://www.linkedin.com/in/ananymishradev)
-- [X](https://twitter.com/ananymishra)
-- [Email](mailto:anany.mishra.real@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/ananymishradev) - If you got something for me.
+- [X](https://twitter.com/ananymishradev) - new account, more frequently updated
+- [Email](mailto:anany.mishra.dev@gmail.com)
 
 > [!TIP]
 > Send the shape of your pipeline and the GPU you are on. A rough answer with those two facts beats a perfect answer without them.

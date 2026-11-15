@@ -1,5 +1,5 @@
 diff --git a/src/components/Header.astro b/src/components/Header.astro
-index 98f6a1b0f410d3a9bb394d6b42b7d7f1766b0ad0..ecc8a9eda985d938ddf67ddd9d3521f859281a55 100644
+index 98f6a1b0f410d3a9bb394d6b42b7d7f1766b0ad0..ef78c7edaf1cc05825e84cb7b1b2a45e01960e78 100644
 --- a/src/components/Header.astro
 +++ b/src/components/Header.astro
 @@ -29,6 +29,7 @@ const links = [
@@ -10,3 +10,11 @@ index 98f6a1b0f410d3a9bb394d6b42b7d7f1766b0ad0..ecc8a9eda985d938ddf67ddd9d3521f8
    ...(features.showArchives
      ? [{ path: "/archives", label: t.nav.archives }]
      : []),
+@@ -117,6 +118,7 @@ const links = [
+ 
+ <style>
+   .site-title {
++    font-family: var(--font-body);
+     font-variation-settings: "opsz" 40;
+     letter-spacing: -0.01em;
+   }
