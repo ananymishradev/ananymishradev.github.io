@@ -1,31 +1,28 @@
 ---
 title: "We Can Solve Something Hard"
-description: "Performance engineering for heavy multi-modal pipelines: custom C++ and CUDA kernels, smaller VRAM footprints, smaller GPU bills."
+description: "CUDA kernels, Go services, and the glue that keeps a cluster honest."
 ---
 
-I am a Performance Engineer. I have observed many organizations are running heavy multi-modal pipelines.
+I write systems code. CUDA kernels, Go services, and the small pieces of glue that keep a cluster honest.
 
-I specialize in squeezing PyTorch models into custom C++/CUDA kernels.
+[CUDA-Kernels](https://github.com/ananymishradev/CUDA-Kernels) is the kernel lab, and it is still growing. Tiled GEMM at **91% of cuBLAS** in single precision: 128×128 blocks, 8×8 per thread, everything staged through shared memory. Reductions, scans and a couple of attention kernels are queued behind it. A kernel earns its place on the flame graph, not in the README.
 
-I have a few fractional slots open to help startups optimize their VRAM footprints or slash their GPU cloud bills.
+[Tron](https://github.com/ananymishradev/Tron) pushes a million particles through a 6 GB laptop card, because a profiler is cheaper than an A100. CUDA integration, a uniform-grid broadphase, a hand-written SDL2/OpenGL renderer, and counters I can point at when somebody says the frame drop is probably the driver.
 
-## What that looks like in practice
+[Sluice](https://github.com/ananymishradev/sluice) sits between OpenFOAM and SLURM: preflight the case, cache what can be cached, submit, supervise, and never spend a queue slot on a case that was going to die in the first minute.
 
-Not slideware. The work is public, and the numbers come with it:
+[Iacon](https://github.com/ananymishradev/Iacon) is the one in the workshop. An incident responder for agent stacks, written in Go: the `/live`, `/ready` and `/health` contract, 1 Hz probes, Prometheus windows, tri-state evidence, deterministic rules, and a chaos harness that runs the old version and the new one through the same bad afternoon.
 
-- [Tron](https://github.com/ananymishradev/Tron) — particle and rigid-body simulation in CUDA with a hand-written SDL2/OpenGL renderer, profiled on a 6 GB card instead of an A100.
-- [CUDA-Matrix-Multiplication](https://github.com/ananymishradev/CUDA-Matrix-Multiplication) — hand-written tiled GEMM at **91% of cuBLAS** in single precision. The same discipline that shrinks a kernel shrinks a bill.
-- [Kneepoint](https://github.com/ananymishradev/Kneepoint) — where a 1.5B model stops keeping up on 6 GB: FP16 against AWQ-Int4 and GPTQ-Int4, TTFT, inter-token latency, and projected dollars per million tokens.
-- [sluice](https://github.com/ananymishradev/sluice) — preflight, cache and supervise OpenFOAM jobs on a shared SLURM cluster, so a queue slot is never spent on a case that was going to fail anyway.
+I like the part where the number moves and the log stops lying.
+
+I have room for a couple of projects at a time, and the first call is a flame graph, not a pitch.
 
 ## Getting in touch
 
-Tell me the model, the card, and the bill. I will tell you which one is the problem.
-
-- [GitHub](https://github.com/ananymishradev) — everything above, in source
+- [GitHub](https://github.com/ananymishradev) — all of the above, in source
 - [LinkedIn](https://www.linkedin.com/in/ananymishradev)
-- [X](https://twitter.com/ananymishradev)
+- [X](https://twitter.com/ananymishra)
 - [Email](mailto:anany.mishra.real@gmail.com)
 
 > [!TIP]
-> Include the shape of your pipeline and the GPU you are on. A rough answer with those two facts beats a perfect answer without them.
+> Send the shape of your pipeline and the GPU you are on. A rough answer with those two facts beats a perfect answer without them.

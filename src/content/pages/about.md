@@ -3,7 +3,7 @@ title: "About"
 description: "Early, loud, and shipping: Anany Mishra on CUDA kernels, HPC job runners and agents built without a framework."
 ---
 
-I am new to this. Not fake-new, the actual kind: I still reach for a search bar to remember how `epoll` ties to `poll`, I have rewritten the same scheduler three times, and a good week is one where the profiler finally stops telling me I was wrong.
+I am new to this. Not fake-new, the actual kind: I still reach for a search bar to remember how `epoll` ties to `poll`, I have rewritten the same scheduler three times, and my `git log` reads like a horror film with good lighting.
 
 What I do have is a habit. When something looks like magic, I take it apart until it looks like arithmetic.
 
@@ -17,28 +17,28 @@ If you are here to hire rather than to read, skip to [We Can Solve Something Har
 
 [Tron](https://github.com/ananymishradev/Tron) started from a stubborn question — how many particles can an RTX 3050 actually push when the CPU is not allowed to help? So the integration runs in CUDA, the broadphase is a uniform grid, and collisions happen where the data already lives. The renderer is hand-written SDL2 and OpenGL, because "the frame drop is probably the driver" is a much weaker sentence when you wrote the loop that dropped it.
 
-It has profiling hooks and live counters. I built the meters before I built the fun part, which is either discipline or a warning sign.
+It has profiling hooks and live counters. I built the meters before I built the fun part — half discipline, half refusing to be the person who says "works on my machine" with a straight face.
 
-### A hand-written kernel that nearly matches NVIDIA
+### A kernel lab that keeps NVIDIA honest
 
-[CUDA-Matrix-Multiplication](https://github.com/ananymishradev/CUDA-Matrix-Multiplication) was a one-line dare: how close can a tiled kernel get to cuBLAS? Answer, on my rig: **91% of cuBLAS in single precision**. 128×128 block, 8×8 per thread, shared-memory staging, the whole ladder from naive to near-library.
+[CUDA-Kernels](https://github.com/ananymishradev/CUDA-Kernels) started as a one-line dare: how close can a tiled kernel get to cuBLAS? The answer, on my rig, is still **91% of cuBLAS in single precision** — 128×128 block, 8×8 per thread, shared-memory staging, the whole ladder from naive to near-library. Reductions, scans and a couple of attention kernels are queued behind it.
 
-The number is the least interesting part. What I actually learned was why the tiling works, where the bank conflicts come from, and how much a single misplaced `__syncthreads` costs.
+The number is the least interesting part. What stuck was why the tiling works, where the bank conflicts come from, and how much a single misplaced `__syncthreads` costs. That is the footgun that actually teaches you the memory model.
 
 ### A market data parser that measures itself
 
-[UDP-Market-Data-Parser](https://github.com/ananymishradev/UDP-Market-Data-Parser) is small on purpose: 32-byte packets over localhost UDP, a mock generator that sprays them, and a consumer that parses them **zero-copy**. Structs are cache-aligned, sockets are non-blocking, and every packet carries its own latency sample from `rdtscp`. No framework, no allocation in the hot path, no room for a comfortable lie.
+[UDP-Market-Data-Parser](https://github.com/ananymishradev/UDP-Market-Data-Parser) is small on purpose: 32-byte packets over localhost UDP, a mock generator that sprays them, and a consumer that parses them **zero-copy**. Structs are cache-aligned, sockets are non-blocking, and every packet carries its own latency sample from `rdtscp`. No framework, no allocation in the hot path, and no comfortable lie in the average — if p99 is ugly, the mean is just a press release.
 
 ### A job runner for people who share a cluster
 
-[sluice](https://github.com/ananymishradev/sluice) is a Go tool that sits between OpenFOAM and SLURM: preflight the case, cache what can be cached, submit, supervise, and refuse to waste a queue slot on a mesh that was never going to converge. It has tagged releases, a CI pipeline, and an OpenSSF scorecard badge I check more often than is healthy.
+[sluice](https://github.com/ananymishradev/sluice) is a Go tool that sits between OpenFOAM and SLURM: preflight the case, cache what can be cached, submit, supervise, and refuse to waste a queue slot on a mesh that was never going to converge. Tagged releases, a CI pipeline that is green more often than my local branch, and an OpenSSF scorecard badge I check more often than is healthy. It has never needed an LGTM from anyone but me, which is exactly the part I am trying to fix.
 
 ## The agent stuff
 
 I build agents without frameworks, mostly to find out what the frameworks were hiding.
 
 - [loupe](https://github.com/ananymishradev/loupe) — a read-only tutor for Claude Code, OpenCode and Copilot. It explains the bug and never edits a file. I built it because letting an agent write the fix taught me nothing about the fix.
-- [agent_eval](https://github.com/ananymishradev/agent_eval) — layer-by-layer benchmarking on HotpotQA and GAIA Levels 2 and 3 over a local Ollama model. Each layer has to pay for itself in EM or F1, or it gets deleted.
+- [agent_eval](https://github.com/ananymishradev/agent_eval) — layer-by-layer benchmarking on HotpotQA and GAIA Levels 2 and 3 over a local Ollama model. Each layer has to pay for itself in EM or F1, or it gets `git rm`'d.
 
 ### In the workshop
 
@@ -57,7 +57,7 @@ And [High-Performance-Computing](https://github.com/ananymishradev/High-Performa
 
 ## What I am bad at
 
-Plenty. Frontend layout still fights me. I write tests after the second rewrite, not the first. My commits are too large. I have never had to defend a design in front of a paying customer, which is where the real opinions get formed.
+Plenty. Frontend layout still fights me. I write tests after the second rewrite, not the first, which is the exact yak shave I warn other people about. My commits are too large. I have bikeshedded a variable name for twenty minutes and then renamed it in review anyway. I have never had to defend a design in front of a paying customer, which is where the real opinions get formed.
 
 ## What I am doing about it
 
