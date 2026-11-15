@@ -23,7 +23,7 @@ export default defineSageConfig({
   features: {
     lightAndDarkMode: true,
     dynamicOgImage: true,
-    showArchives: true,
+    showArchives: false,
     showBackButton: false,
     editPost: { enabled: false },
     search: "pagefind",
@@ -35,5 +35,6 @@ export default defineSageConfig({
       url: "https://www.linkedin.com/in/ananymishradev",
     },
     { name: "twitter", url: "https://twitter.com/ananymishra" },
+    { name: "mail", url: "mailto:anany.mishra.real@gmail.com" },
   ],
 });

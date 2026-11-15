@@ -9,6 +9,8 @@ What I do have is a habit. When something looks like magic, I take it apart unti
 
 That habit is the whole bio. Everything below is the receipt.
 
+If you are here to hire rather than to read, skip to [We Can Solve Something Hard](/contact/).
+
 ## Things that should not work this well
 
 ### A physics engine that runs on the GPU

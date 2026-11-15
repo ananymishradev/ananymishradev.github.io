@@ -3,7 +3,6 @@ title: "Choosing a reading face"
 description: "Why AstroSage sets its body text in a variable serif with optical sizing, and how to swap it."
 pubDatetime: 2026-10-16T09:00:00Z
 tags: ["astrosage", "typography"]
-series: "Building AstroSage"
 ---
 
 AstroSage ships three variable serifs designed for reading on screens: **Source Serif 4**, **Literata** and **Newsreader**. All three support optical sizing, so the same family works for 14px captions and 48px titles.
