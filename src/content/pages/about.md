@@ -1,127 +1,66 @@
 ---
 title: "About"
-description: "What the AstroSage theme does, and how to use it for your own Astro blog."
+description: "Early, loud, and shipping: Anany Mishra on CUDA kernels, HPC job runners and agents built without a framework."
 ---
 
-AstroSage is a readability-first blog theme for [Astro](https://astro.build/), made for long technical posts. It started as a fork of [AstroPaper](https://github.com/satnaing/astro-paper) by Sat Naing and was rebuilt around serif typography, a warm paper palette and a table of contents that stays beside the text. This site is its live demo: every element is on one page in [[showcase|the showcase post]].
+I am new to this. Not fake-new, the actual kind: I still reach for a search bar to remember how `epoll` ties to `poll`, I have rewritten the same scheduler three times, and a good week is one where the profiler finally stops telling me I was wrong.
 
-## What you get
+What I do have is a habit. When something looks like magic, I take it apart until it looks like arithmetic.
 
-### Reading
+That habit is the whole bio. Everything below is the receipt.
 
-- A serif body (Newsreader, Source Serif 4 or Literata) at 18.5px on a column held to 66–71 characters, with JetBrains Mono for labels, dates and code.
-- Warm paper in light mode and espresso in dark, with every colour checked for contrast.
-- A table of contents pinned beside the text that highlights where you are, and folds into an "On this page" block on phones.
+## Things that should not work this well
 
-### Writing
+### A physics engine that runs on the GPU
 
-- Math with KaTeX, code with Expressive Code (titles, diffs, line numbers, a language label and a copy button), and Mermaid or Excalidraw diagrams, all rendered when the site builds.
-- Callouts, footnotes, tables, round task lists, and images that break out to `wide` or `full` width.
-- Wiki-links between posts (`[[slug]]`, `[[slug#Heading]]`), and series with "Part N of M" navigation.
+[Tron](https://github.com/ananymishradev/Tron) started from a stubborn question — how many particles can an RTX 3050 actually push when the CPU is not allowed to help? So the integration runs in CUDA, the broadphase is a uniform grid, and collisions happen where the data already lives. The renderer is hand-written SDL2 and OpenGL, because "the frame drop is probably the driver" is a much weaker sentence when you wrote the loop that dropped it.
 
-### Sharing and discovery
+It has profiling hooks and live counters. I built the meters before I built the fun part, which is either discipline or a warning sign.
 
-- A share sheet for X, LinkedIn, Bluesky, Reddit, Hacker News and email; selected text can be shared as a link to that passage or as an image card.
-- A social preview image drawn for every post, a full-text RSS feed, a sitemap, search, tags with post counts, and a "Cite this post" block with BibTeX.
-- Optional comments through [utterances](https://utteranc.es) or [giscus](https://giscus.app), backed by GitHub.
+### A hand-written kernel that nearly matches NVIDIA
 
-### Runs anywhere
+[CUDA-Matrix-Multiplication](https://github.com/ananymishradev/CUDA-Matrix-Multiplication) was a one-line dare: how close can a tiled kernel get to cuBLAS? Answer, on my rig: **91% of cuBLAS in single precision**. 128×128 block, 8×8 per thread, shared-memory staging, the whole ladder from naive to near-library.
 
-- The build is a folder of static files: host it on Netlify, Vercel, GitHub Pages, Cloudflare or your own server. There's no server or database to run, and an article page ships only a few kilobytes of JavaScript.
+The number is the least interesting part. What I actually learned was why the tiling works, where the bank conflicts come from, and how much a single misplaced `__syncthreads` costs.
 
-## Use it for your blog
+### A market data parser that measures itself
 
-You'll need Node 22.12 or later. The template uses [pnpm](https://pnpm.io); the npm package works with any package manager.
+[UDP-Market-Data-Parser](https://github.com/ananymishradev/UDP-Market-Data-Parser) is small on purpose: 32-byte packets over localhost UDP, a mock generator that sprays them, and a consumer that parses them **zero-copy**. Structs are cache-aligned, sockets are non-blocking, and every packet carries its own latency sample from `rdtscp`. No framework, no allocation in the hot path, no room for a comfortable lie.
 
-### Start a new blog
+### A job runner for people who share a cluster
 
-```bash
-pnpm create astro@latest my-blog --template chintak/astro-sage
-cd my-blog
-pnpm dev
-```
+[sluice](https://github.com/ananymishradev/sluice) is a Go tool that sits between OpenFOAM and SLURM: preflight the case, cache what can be cached, submit, supervise, and refuse to waste a queue slot on a mesh that was never going to converge. It has tagged releases, a CI pipeline, and an OpenSSF scorecard badge I check more often than is healthy.
 
-This gives you the theme and a ready-made site (`apps/demo`), the same code as this demo. Then:
+## The agent stuff
 
-1. Set your details in `apps/demo/sage.config.ts`: site URL, title, author and social links.
-2. Replace the posts in `apps/demo/src/content/posts/` and edit this page, `src/content/pages/about.md`.
-3. Run `pnpm build` and upload `apps/demo/dist/` to any static host.
+I build agents without frameworks, mostly to find out what the frameworks were hiding.
 
-### Add it to an existing Astro site
+- [HadesAI](https://github.com/ananymishradev/HadesAI) — a bare-metal agent. No plugins, no orchestration library, a local `qwen3:0.6b`, and an opinionated eval loop plus an RL environment, because "it felt better" is not a measurement.
+- [agent_eval](https://github.com/ananymishradev/agent_eval) — layer-by-layer benchmarking on HotpotQA and GAIA Levels 2 and 3 over a local Ollama model. Each layer has to pay for itself in EM or F1, or it gets deleted.
+- [Iacon](https://github.com/ananymishradev/Iacon) — a verified incident responder in Go: the `/live`, `/ready` and `/health` contract, 1 Hz probes, Prometheus windows, tri-state evidence, deterministic rules, and a chaos harness that runs the same scenarios against the previous version so the newer one has to actually win.
+- [loupe](https://github.com/ananymishradev/loupe) — a read-only tutor for Claude Code, OpenCode and Copilot. It explains the bug and never edits a file. I built it because letting an agent write the fix taught me nothing about the fix.
 
-Install the theme from npm:
+## Benchmarks and other excuses to buy a smaller GPU
 
-```bash
-pnpm add astro-sage
-```
+[Kneepoint](https://github.com/ananymishradev/Kneepoint) asks where a 1.5B model stops keeping up on a 6 GB card and what a million tokens cost there: FP16 against AWQ-Int4 and GPTQ-Int4, Poisson load sweeps, TTFT and inter-token latency, a projected dollar figure at the end.
 
-Then register it. It adds every page itself, so you can delete your `src/pages/`:
+[Tensors from Scratch](https://github.com/ananymishradev/Tensors-from-Srcatch) is the opposite direction. No PyTorch, no NumPy. Flat `Storage`, views defined by sizes and strides, `view` versus `reshape`, broadcasting, define-by-run autograd with saved tensors. If a tensor library is just memory plus arithmetic, I want to be able to prove it line by line.
 
-```ts title="astro.config.ts"
-import { defineConfig } from "astro/config";
-import astroSage from "astro-sage";
-import sageConfig from "./sage.config";
+And [High-Performance-Computing](https://github.com/ananymishradev/High-Performance-Computing) is how I got access to any of that: SLURM, Munge, SSH, a three-node Docker sandbox on one laptop, then the real cluster.
 
-export default defineConfig({
-  site: sageConfig.site.url,
-  integrations: [astroSage(sageConfig)],
-});
-```
+## One weekend, real stakes
 
-```ts title="src/content.config.ts"
-import { defineSageCollections } from "astro-sage/content";
-import config from "../sage.config";
+[Zam](https://github.com/ananymishradev/Zam) was built for the Airwallex Agentic Banking Hackathon 2026: a payment incident commander for the bad Thursday when a supplier says the money never arrived and the transfer still says `SENT`. The hard requirement is in the first line of the README — **it cannot pay a supplier twice**. Idempotency, not vibes.
 
-export const collections = defineSageCollections({
-  author: config.site.author,
-});
-```
+## What I am bad at
 
-### Configure it
+Plenty. Frontend layout still fights me. I write tests after the second rewrite, not the first. My commits are too large. I have never had to defend a design in front of a paying customer, which is where the real opinions get formed.
 
-Everything lives in one file. Only `site` is required:
+## What I am doing about it
 
-```ts title="sage.config.ts"
-import { defineSageConfig } from "astro-sage";
+Reading the source instead of the tutorial. Writing down the number before the conclusion. Shipping in public, even when the README admits the benchmark is one laptop and a warm room.
 
-export default defineSageConfig({
-  site: {
-    url: "https://example.com/",
-    title: "My notes",
-    description: "Things I learned.",
-    author: "Ada Lovelace",
-  },
-  typography: { serif: "newsreader" },
-  socials: [{ name: "github", url: "https://github.com/ada" }],
-  comments: { provider: "utterances", repo: "ada/notes" },
-});
-```
+If you want to argue about memory layouts, kernels or eval design, [open an issue](https://github.com/ananymishradev) or find me on [LinkedIn](https://www.linkedin.com/in/ananymishradev). And if you came here from [[showcase|the showcase post]], that one is about the theme — this one is about me.
 
-Every option, with its default, is listed in [FEATURES.md](https://github.com/chintak/astro-sage/blob/main/FEATURES.md#configuration-sageconfigts).
-
-### Write a post
-
-Add a Markdown or MDX file to `src/content/posts/`:
-
-```md title="src/content/posts/hello.md"
----
-title: "Hello, world"
-description: "A one-line summary for lists, RSS and previews."
-pubDatetime: 2026-10-16T09:00:00Z
-tags: ["notes"]
----
-
-Inline math like $e^{i\pi} + 1 = 0$,
-a [[colophon|link to another post]], and a callout:
-
-> [!TIP]
-> Set `draft: true` to keep a post out of the build.
-```
-
-The [[showcase|showcase post]] shows the syntax for everything else, and [its source](https://github.com/chintak/astro-sage/blob/main/apps/demo/src/content/posts/showcase/index.mdx) is a good template.
-
-## Staying up to date
-
-AstroSage follows semantic versioning and is published to npm as [`astro-sage`](https://www.npmjs.com/package/astro-sage). Each release is listed on [GitHub](https://github.com/chintak/astro-sage/releases), with notes in the [changelog](https://github.com/chintak/astro-sage/blob/main/packages/astro-sage/CHANGELOG.md). To upgrade, run `pnpm update astro-sage`.
-
-Questions and bug reports are welcome as [GitHub issues](https://github.com/chintak/astro-sage/issues). AstroSage is MIT-licensed.
+> [!NOTE]
+> Every project above is public. The stars are low, the diffs are not.
