@@ -63,5 +63,13 @@ auditable and easy to drop when upstream ships the same thing.
   [LICENSE](LICENSE).
 - **Content** — everything under `src/content/` (posts, pages, images) is
   © Anany Mishra. All rights reserved. It is **not** covered by the MIT license
-  above and may not be copied, republished, or used to train models without
-  written permission. See [src/content/LICENSE](src/content/LICENSE).
+  above.
+
+  You are welcome to **quote it with proper citation**: credit *Anany Mishra*,
+  name the original post or page, and link to its URL on
+  <https://ananymishradev.github.io/>. Short excerpts and discussion are fine —
+  quoting to make a point is not stealing.
+
+  Republishing posts in full, reusing images, or feeding the content to
+  machine-learning models needs written permission first. Ask at
+  <anany.mishra.dev@gmail.com>. See [src/content/LICENSE](src/content/LICENSE).
