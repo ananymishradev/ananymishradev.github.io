@@ -162,6 +162,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  astro-sage@0.1.5: 41fef854204f0faa81bd338032635b8cb71ab883b385e8ff97a6afb98c652843
+
 importers:
 
   .:
@@ -171,7 +174,7 @@ importers:
         version: 7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)
       astro-sage:
         specifier: ^0.1.5
-        version: 0.1.5(@types/node@26.6.6)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))
+        version: 0.1.5(patch_hash=41fef854204f0faa81bd338032635b8cb71ab883b385e8ff97a6afb98c652843)(@types/node@26.6.6)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))
       sharp:
         specifier: ^0.35.5
         version: 0.35.5(@types/node@26.6.6)
@@ -4265,7 +4268,7 @@ snapshots:
       rehype-expressive-code: 0.44.3
       url-extras: 0.1.0
 
-  astro-sage@0.1.5(@types/node@26.6.6)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)):
+  astro-sage@0.1.5(patch_hash=41fef854204f0faa81bd338032635b8cb71ab883b385e8ff97a6afb98c652843)(@types/node@26.6.6)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)):
     dependencies:
       '@astrojs/markdown-satteri': 0.3.8
       '@astrojs/mdx': 7.0.8(@astrojs/markdown-satteri@0.3.8)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))

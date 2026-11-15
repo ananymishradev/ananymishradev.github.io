@@ -1,0 +1,12 @@
+diff --git a/src/components/Header.astro b/src/components/Header.astro
+index 98f6a1b0f410d3a9bb394d6b42b7d7f1766b0ad0..ecc8a9eda985d938ddf67ddd9d3521f859281a55 100644
+--- a/src/components/Header.astro
++++ b/src/components/Header.astro
+@@ -29,6 +29,7 @@ const links = [
+   { path: "/posts", label: t.nav.posts },
+   ...(hasSeries ? [{ path: "/series", label: t.nav.series }] : []),
+   { path: "/tags", label: t.nav.tags },
++  { path: "/contact", label: "Contact" },
+   ...(features.showArchives
+     ? [{ path: "/archives", label: t.nav.archives }]
+     : []),
