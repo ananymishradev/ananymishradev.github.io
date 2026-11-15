@@ -1,8 +1,12 @@
 diff --git a/src/components/Header.astro b/src/components/Header.astro
-index 98f6a1b0f410d3a9bb394d6b42b7d7f1766b0ad0..ef78c7edaf1cc05825e84cb7b1b2a45e01960e78 100644
+index 98f6a1b0f410d3a9bb394d6b42b7d7f1766b0ad0..974da9269ea74468c2ded74a9a15bb7c44ba0279 100644
 --- a/src/components/Header.astro
 +++ b/src/components/Header.astro
-@@ -29,6 +29,7 @@ const links = [
+@@ -26,13 +26,14 @@ const hasSeries = (await getCollection("posts")).some(
+ );
+ 
+ const links = [
++  { path: "/about", label: t.nav.about },
    { path: "/posts", label: t.nav.posts },
    ...(hasSeries ? [{ path: "/series", label: t.nav.series }] : []),
    { path: "/tags", label: t.nav.tags },
@@ -10,6 +14,10 @@ index 98f6a1b0f410d3a9bb394d6b42b7d7f1766b0ad0..ef78c7edaf1cc05825e84cb7b1b2a45e
    ...(features.showArchives
      ? [{ path: "/archives", label: t.nav.archives }]
      : []),
+-  { path: "/about", label: t.nav.about },
+ ];
+ ---
+ 
 @@ -117,6 +118,7 @@ const links = [
  
  <style>

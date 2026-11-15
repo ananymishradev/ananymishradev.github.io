@@ -163,7 +163,7 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
-  astro-sage@0.1.5: 18ea71ee55a45862d2507ce3e7a5a3e5abddac529a02716a2f9b375bfd7ce49a
+  astro-sage@0.1.5: fcac3f967e3295c173e10c46edce046c3b552c943890fb57defb8618f1c7aa58
 
 importers:
 
@@ -174,7 +174,7 @@ importers:
         version: 7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)
       astro-sage:
         specifier: ^0.1.5
-        version: 0.1.5(patch_hash=18ea71ee55a45862d2507ce3e7a5a3e5abddac529a02716a2f9b375bfd7ce49a)(@types/node@26.6.6)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))
+        version: 0.1.5(patch_hash=fcac3f967e3295c173e10c46edce046c3b552c943890fb57defb8618f1c7aa58)(@types/node@26.6.6)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))
       sharp:
         specifier: ^0.35.5
         version: 0.35.5(@types/node@26.6.6)
@@ -4268,7 +4268,7 @@ snapshots:
       rehype-expressive-code: 0.44.3
       url-extras: 0.1.0
 
-  astro-sage@0.1.5(patch_hash=18ea71ee55a45862d2507ce3e7a5a3e5abddac529a02716a2f9b375bfd7ce49a)(@types/node@26.6.6)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)):
+  astro-sage@0.1.5(patch_hash=fcac3f967e3295c173e10c46edce046c3b552c943890fb57defb8618f1c7aa58)(@types/node@26.6.6)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)):
     dependencies:
       '@astrojs/markdown-satteri': 0.3.8
       '@astrojs/mdx': 7.0.8(@astrojs/markdown-satteri@0.3.8)(astro@7.4.12(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))

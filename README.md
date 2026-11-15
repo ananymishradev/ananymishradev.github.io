@@ -1,37 +1,67 @@
 # ananymishradev.github.io
 
-Personal site and blog, built with [Astro](https://astro.build) and the
-[AstroSage](https://github.com/chintak/astro-sage) theme. Static output, deployed
-to GitHub Pages.
+Personal site of Anany Mishra — writing, projects and a contact page.
 
-## Development
+Live at <https://ananymishradev.github.io/>.
+
+## Stack
+
+- [Astro](https://astro.build) 7, fully static output
+- [AstroSage](https://github.com/chintak/astro-sage) theme by
+  [Chintak Sheth](https://chintak.sh) (npm: `astro-sage`)
+- Tailwind CSS 4, MDX, KaTeX, Expressive Code, Pagefind
+- Hosted on GitHub Pages via GitHub Actions
+
+## Run it
 
 ```sh
 pnpm install
 pnpm dev        # http://localhost:4321
-pnpm build      # type-check, build to dist/, then index with Pagefind
+pnpm build      # type-check, build, index with Pagefind, prune unused routes
 pnpm preview    # serve the built site
 ```
 
-## Writing
+Deployment steps, commit conventions and `.gitignore` notes live in
+[DEPLOY.md](DEPLOY.md).
 
-- Site details, social links and feature flags: `sage.config.ts`
-- Posts: `src/content/posts/` (Markdown or MDX)
-- Standalone pages: `src/content/pages/`
+## Where things live
 
-Pages, routes, RSS, sitemap and search are injected by the `astro-sage`
-integration, so there is no `src/pages/` directory.
+| What | Where |
+| --- | --- |
+| Site name, author, socials, feature flags | `sage.config.ts` |
+| Posts | `src/content/posts/` |
+| Standalone pages (about, contact) | `src/content/pages/` |
+| Custom `/contact` route | `src/pages/contact.astro` |
+| Post-build cleanup of `/archives` and `/series` | `scripts/prune.mjs` |
+| Theme patches (nav order, site title font) | `patches/astro-sage@0.1.5.patch` |
+| Rendered diagram cache (committed on purpose) | `.sage-cache/diagrams/` |
 
-## Deploy
+The `astro-sage` integration injects every route, so there is no general
+`src/pages/` tree — only the one extra page for `/contact`.
 
-Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and
-publishes `dist/` to GitHub Pages at <https://ananymishradev.github.io/>.
-Source and settings must stay on the `GitHub Actions` Pages source for that to
-work.
+## Credits
 
-## Diagrams
+This site is **not** original theme work. All credit for the design, the
+integration and the build pipeline goes to:
 
-Mermaid and Excalidraw diagrams are rendered at build time in headless Chromium.
-The rendered SVGs are cached in `.sage-cache/diagrams/` and that folder is
-committed, so CI needs no browser. If you add a diagram, build locally with
-Playwright's Chromium installed and commit the new cache file.
+- **[Chintak Sheth](https://github.com/chintak)** — author of
+  [AstroSage](https://github.com/chintak/astro-sage), the theme this site runs
+  on. MIT licensed.
+- **[Sat Naing](https://github.com/satnaing)** — author of
+  [AstroPaper](https://github.com/satnaing/astro-paper), which AstroSage forks
+  and rebuilds. MIT licensed.
+- **[With Astro](https://astro.build)** — the framework and its ecosystem.
+
+The full MIT text with both copyright lines is in [LICENSE](LICENSE). Local
+changes to the theme are recorded as a patch in `patches/`, so they stay
+auditable and easy to drop when upstream ships the same thing.
+
+## Copyright
+
+- **Theme and site code** — © Sat Naing (AstroPaper, 2023) and Chintak Sheth
+  (AstroSage, 2026), MIT licensed. You may reuse it under the terms of
+  [LICENSE](LICENSE).
+- **Content** — everything under `src/content/` (posts, pages, images) is
+  © Anany Mishra. All rights reserved. It is **not** covered by the MIT license
+  above and may not be copied, republished, or used to train models without
+  written permission. See [src/content/LICENSE](src/content/LICENSE).
