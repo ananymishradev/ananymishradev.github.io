@@ -35,10 +35,15 @@ The number is the least interesting part. What I actually learned was why the ti
 
 I build agents without frameworks, mostly to find out what the frameworks were hiding.
 
-- [HadesAI](https://github.com/ananymishradev/HadesAI) — a bare-metal agent. No plugins, no orchestration library, a local `qwen3:0.6b`, and an opinionated eval loop plus an RL environment, because "it felt better" is not a measurement.
-- [agent_eval](https://github.com/ananymishradev/agent_eval) — layer-by-layer benchmarking on HotpotQA and GAIA Levels 2 and 3 over a local Ollama model. Each layer has to pay for itself in EM or F1, or it gets deleted.
-- [Iacon](https://github.com/ananymishradev/Iacon) — a verified incident responder in Go: the `/live`, `/ready` and `/health` contract, 1 Hz probes, Prometheus windows, tri-state evidence, deterministic rules, and a chaos harness that runs the same scenarios against the previous version so the newer one has to actually win.
 - [loupe](https://github.com/ananymishradev/loupe) — a read-only tutor for Claude Code, OpenCode and Copilot. It explains the bug and never edits a file. I built it because letting an agent write the fix taught me nothing about the fix.
+- [agent_eval](https://github.com/ananymishradev/agent_eval) — layer-by-layer benchmarking on HotpotQA and GAIA Levels 2 and 3 over a local Ollama model. Each layer has to pay for itself in EM or F1, or it gets deleted.
+
+### In the workshop
+
+Two more are half-built in public. I would rather show the scaffolding than pretend it is finished.
+
+- [HadesAI](https://github.com/ananymishradev/HadesAI) — a bare-metal agent, still early. No plugins, no orchestration library, a local `qwen3:0.6b`, and an opinionated eval loop plus an RL environment, because "it felt better" is not a measurement.
+- [Iacon](https://github.com/ananymishradev/Iacon) — a verified incident responder in Go, working through its first implementation. The plan: the `/live`, `/ready` and `/health` contract, 1 Hz probes, Prometheus windows, tri-state evidence, deterministic rules, and a chaos harness that runs the same scenarios against the previous version so the newer one has to actually win.
 
 ## Benchmarks and other excuses to buy a smaller GPU
 
@@ -47,10 +52,6 @@ I build agents without frameworks, mostly to find out what the frameworks were h
 [Tensors from Scratch](https://github.com/ananymishradev/Tensors-from-Srcatch) is the opposite direction. No PyTorch, no NumPy. Flat `Storage`, views defined by sizes and strides, `view` versus `reshape`, broadcasting, define-by-run autograd with saved tensors. If a tensor library is just memory plus arithmetic, I want to be able to prove it line by line.
 
 And [High-Performance-Computing](https://github.com/ananymishradev/High-Performance-Computing) is how I got access to any of that: SLURM, Munge, SSH, a three-node Docker sandbox on one laptop, then the real cluster.
-
-## One weekend, real stakes
-
-[Zam](https://github.com/ananymishradev/Zam) was built for the Airwallex Agentic Banking Hackathon 2026: a payment incident commander for the bad Thursday when a supplier says the money never arrived and the transfer still says `SENT`. The hard requirement is in the first line of the README — **it cannot pay a supplier twice**. Idempotency, not vibes.
 
 ## What I am bad at
 
@@ -63,4 +64,4 @@ Reading the source instead of the tutorial. Writing down the number before the c
 If you want to argue about memory layouts, kernels or eval design, [open an issue](https://github.com/ananymishradev) or find me on [LinkedIn](https://www.linkedin.com/in/ananymishradev). And if you came here from [[showcase|the showcase post]], that one is about the theme — this one is about me.
 
 > [!NOTE]
-> Every project above is public. The stars are low, the diffs are not.
+> Everything above is public. Some of it is finished, two of them are not, and the commit log shows which.
